@@ -1,3 +1,4 @@
+import React from 'react';
 import { TaboWord } from "../constant/TaboWords"
 
 function shuffle(array) {
@@ -24,12 +25,10 @@ export default (request, response) => {
     // all request method allowed
     
     const { API_KEY } = request.body;
-    console.log(process.env.API_KEY)
-    response.statusCode = 200
     if ( request.method === 'POST' && API_KEY === process.env.API_KEY ) {
-        response.json(shuffle(TaboWord));
+        response.status(200).json(shuffle(TaboWord));
     } else {
-        response.json({
+        response.status(200).json({
             code: 10010, 
             message: 'Bad Request'
         });
