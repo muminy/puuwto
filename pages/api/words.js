@@ -1,5 +1,4 @@
-import React from 'react';
-import { TaboWord } from "../constant/TaboWords"
+
 
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -26,7 +25,7 @@ export default (request, response) => {
     
     const { API_KEY } = request.body;
     if ( request.method === 'POST' && API_KEY === process.env.API_KEY ) {
-        response.status(200).json(shuffle(TaboWord));
+        response.status(200).json(shuffle([1,2,3,4,5]));
     } else {
         response.status(200).json({
             code: 10010, 
