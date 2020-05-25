@@ -3,6 +3,7 @@ import fetch from "isomorphic-unfetch";
 import Header from '../components/Header';
 import Container from '../components/Container';
 import { CheckIcon } from '../constant/Icons';
+import { Api } from '../constant/Api';
 
 const Home = ({posts}) => {
   console.log(posts)
@@ -133,7 +134,7 @@ const Home = ({posts}) => {
 
 Home.getInitialProps = async ({ req }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch("http://localhost:3000/api/posts");
+  const res = await fetch(Api + '/posts');
   const json = await res.json();
   return json;
 };
