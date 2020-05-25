@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Container from '../components/Container';
 import { CheckIcon } from '../constant/Icons';
 
-const Home = ({posts}) => {
+const Home = () => {
   return (
     <div>
       <Head>
@@ -128,13 +128,5 @@ const Home = ({posts}) => {
     </div>
   )
 }
-
-
-Home.getInitialProps = async ({ req }) => {
-  // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch("http://localhost:3000/api/posts");
-  const json = await res.json();
-  return json;
-};
 
 export default Home;
