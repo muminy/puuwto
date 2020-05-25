@@ -24,7 +24,6 @@ function shuffle(array) {
 export default function words(request, response) {
     // request status code 
     // all request method allowed
-    console.log()
     const { API_KEY } = request.body;
     if ( request.method === 'POST' && API_KEY === process.env.API_KEY ) {
         response.status(200).json(shuffle([...TabooList2, ...TaboWords1]));
