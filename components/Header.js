@@ -1,5 +1,5 @@
 import Head from 'next/head'
-
+import Link from 'next/link'
 export default function(){
     return (
         <nav className="navbar navbar-expand-lg navbar-light">
@@ -14,13 +14,19 @@ export default function(){
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="menuUl">
                         <li className="menuLi active">
-                            <a className="menuA" href="#">Home</a>
+                            <Link href="/">
+                                <a>Home</a>
+                            </Link>
                         </li>
                         <li className="menuLi ">
-                            <a className="menuA" href="#">Blog</a>
+                            <Link href="/blog">
+                                <a>Blog</a>
+                            </Link>
                         </li>
                         <li className="menuLi">
-                            <a className="menuA" href="#">Apps</a>
+                            <Link href="/apps">
+                                <a>Apps</a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

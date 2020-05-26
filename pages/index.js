@@ -6,7 +6,6 @@ import { CheckIcon } from '../constant/Icons';
 import { Api } from '../constant/Api';
 
 const Home = ({posts}) => {
-  console.log(posts)
   return (
     <div>
       <Head>
@@ -130,13 +129,5 @@ const Home = ({posts}) => {
     </div>
   )
 }
-
-
-Home.getInitialProps = async ({ req }) => {
-  // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch(Api + '/posts');
-  const json = await res.json();
-  return json;
-};
 
 export default Home;
