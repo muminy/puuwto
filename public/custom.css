@@ -163,11 +163,14 @@ font-family: 'Rubik', sans-serif;
 .privacy > p {
     font-family: 'Muli', sans-serif;
     font-size: 17px;
+    color: rgb(202, 202, 202);
+    margin-bottom: 25px;
 }
 .privacy > h1 {
     font-family: 'Rubik', sans-serif;
-    font-style: italic;
     font-size: 19px;
+    color: #fff;
+    margin-bottom: 5px;
 }
 .privacy > h1.firstHeader {
     font-size: 35px;
@@ -181,6 +184,7 @@ font-family: 'Rubik', sans-serif;
 .privacy > .mail {
     margin-bottom: 0px!important;
     font-family: 'Muli', sans-serif;
+    color: rgb(202, 202, 202);
 }
 
 body {
