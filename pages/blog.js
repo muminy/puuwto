@@ -3,8 +3,23 @@ import fetch from "isomorphic-unfetch";
 import Header from '../components/Header';
 import Container from '../components/Container';
 import { Api } from '../constant/Api';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
-const Blog = ({posts}) => {
+const Blog = () => {
+
+  const [blogs, setBlogs] = useState([]);
+
+  const getBlogs = () => {
+    fetch('http://localhost:3000/api/posts')
+    .then(data => data.json())
+    .then(responseJson => setBlogs(responseJson))
+  }
+
+  useEffect(() => {
+    getBlogs()
+  }, [])
+
   return (
     <div>
       <Head>
@@ -16,7 +31,7 @@ const Blog = ({posts}) => {
         <Container>
           <div className="blogs">
             <header className="header_blogs">
-              <div className="title_blog">We are <b>Puuwto</b></div>
+              <div className="title_blog">Personal <b>Blog</b></div>
               <p>We develop Mobile, Web and desktop applications, and it's free. We use only react, electronjs as frond-end. We use php, nodeJs and pyhton in back-end.</p>
             </header>
           </div>
@@ -24,18 +39,14 @@ const Blog = ({posts}) => {
       </div>
       <Container>
         <div className="blogs_all">
-          <div className="blog-design">
-            <header>We are Puuwto</header>
-            <p>Qui ad id fugiat ipsum elit do sunt occaecat nulla id cupidatat dolor pariatur anim.Qui ad id fugiat ipsum elit do sunt occaecat nulla id cupidatat dolor pariatur anim.</p>
-          </div>
-          <div className="blog-design">
-            <header>We are Puuwto</header>
-            <p>Qui ad id fugiat ipsum elit do sunt occaecat nulla id cupidatat dolor pariatur anim.Qui ad id fugiat ipsum elit do sunt occaecat nulla id cupidatat dolor pariatur anim.</p>
-          </div>
-          <div className="blog-design">
-            <header>We are Puuwto</header>
-            <p>Qui ad id fugiat ipsum elit do sunt occaecat nulla id cupidatat dolor pariatur anim.Qui ad id fugiat ipsum elit do sunt occaecat nulla id cupidatat dolor pariatur anim.</p>
-          </div>
+          {blogs.map((item, index) => (
+            <div key={index} className="blog-design">
+              <Link href={'/blog/' + item.slug}>
+                <a>{item.title}</a>
+              </Link>
+              <p>{item.info}</p>
+            </div>
+          ))}
         </div>
       </Container>
 
