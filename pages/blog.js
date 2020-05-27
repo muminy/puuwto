@@ -11,7 +11,7 @@ const Blog = ({posts}) => {
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossOrigin="anonymous"></link>
         <link rel="stylesheet" href="./custom.css" />
       </Head>
-      <Header />
+      <Header href="blog" />
       <div className="info_company">
         <Container>
           <div className="blogs">
@@ -22,6 +22,22 @@ const Blog = ({posts}) => {
           </div>
         </Container>
       </div>
+      <Container>
+        <div className="blogs_all">
+          <div className="blog-design">
+            <header>We are Puuwto</header>
+            <p>Qui ad id fugiat ipsum elit do sunt occaecat nulla id cupidatat dolor pariatur anim.Qui ad id fugiat ipsum elit do sunt occaecat nulla id cupidatat dolor pariatur anim.</p>
+          </div>
+          <div className="blog-design">
+            <header>We are Puuwto</header>
+            <p>Qui ad id fugiat ipsum elit do sunt occaecat nulla id cupidatat dolor pariatur anim.Qui ad id fugiat ipsum elit do sunt occaecat nulla id cupidatat dolor pariatur anim.</p>
+          </div>
+          <div className="blog-design">
+            <header>We are Puuwto</header>
+            <p>Qui ad id fugiat ipsum elit do sunt occaecat nulla id cupidatat dolor pariatur anim.Qui ad id fugiat ipsum elit do sunt occaecat nulla id cupidatat dolor pariatur anim.</p>
+          </div>
+        </div>
+      </Container>
 
 
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossOrigin="anonymous"></script>

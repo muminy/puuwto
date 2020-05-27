@@ -31,10 +31,10 @@ font-family: 'Rubik', sans-serif;
 }
 
 .logoText {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter',-apple-system,BlinkMacSystemFont,Helvetica Neue,Segoe UI,Helvetica,Roboto,Arial,sans-serif;
     font-weight: bold;
     font-size: 24px;
-    color: #fff;
+    color: #2baa55;
     text-decoration: none;
 }
 .logoText:hover {
@@ -42,7 +42,7 @@ font-family: 'Rubik', sans-serif;
     color: #fff;
 }
 .logoText > span {
-    color: #da5454;
+    color: #fff;
 }
 
 .menuUl {
@@ -74,6 +74,35 @@ font-family: 'Rubik', sans-serif;
     display: block;
 }
 
+.blog-design > header {
+    color: #fff;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.blog-design > p {
+    color: rgb(196, 196, 196);
+    font-size: 15px;
+    line-height: 20px;
+}
+.blog-design {
+    padding: 20px;
+    background-color: #111;
+    border-radius: 5px;
+    width: calc(50% - 25px);
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+.blog-design:nth-child(2n+2){
+    width: 50%;
+    margin-right: 0px;
+}
+.blogs_all {
+    width: 100%;
+    padding: 30px 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
 .header_blogs > .title_blog {
     font-family: 'Poppins', sans-serif;
     font-size: 30px;

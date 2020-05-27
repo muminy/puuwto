@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-export default function(){
+export default function({href}){
     return (
         <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container">
@@ -13,19 +13,19 @@ export default function(){
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="menuUl">
-                        <li className="menuLi active">
+                        <li className={href === 'home' ? 'menuLi active' : 'menuLi'}>
                             <Link href="/">
-                                <a>Home</a>
+                                <a className="menuA">Home</a>
                             </Link>
                         </li>
-                        <li className="menuLi ">
+                        <li className={href === 'blog' ? 'menuLi active' : 'menuLi'}>
                             <Link href="/blog">
-                                <a>Blog</a>
+                                <a className="menuA">Blog</a>
                             </Link>
                         </li>
-                        <li className="menuLi">
+                        <li className={href === 'home' ? 'menuLi active' : 'menuLi'}>
                             <Link href="/apps">
-                                <a>Apps</a>
+                                <a className="menuA">Apps</a>
                             </Link>
                         </li>
                     </ul>
