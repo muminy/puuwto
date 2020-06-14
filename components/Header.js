@@ -10,12 +10,10 @@ export default function ({ href }) {
                     .
                 </a>
             </Link>
-            <ul className="links">
-                <li>
-                    <Link href={{ pathname: '/' }}><a className="menu_link"> Blog </a></Link>
-                </li>
-                <li><Link href={{ pathname: '/' }}><a className="menu_link"> Uygulamalar </a></Link></li>
-            </ul>
+            <div className="menus">
+                <Link href={{ pathname: '/' }}><a className="menu_link"> Anasayfa </a></Link>
+                <Link href={{ pathname: '/' }}><a className="menu_link"> Uygulamalar </a></Link>
+            </div>
         </div>
     )
 }

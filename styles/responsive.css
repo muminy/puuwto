@@ -59,12 +59,11 @@
 }
 
 @media only screen and (max-width: 800px) {
-    :root {
-        --width: 90%;
-        --contentWidth: 90%
-    }
     .blogs_all {
         display: block!important;
+    }
+    .kList {
+        width: 100%!important;
     }
     .blogs_all .blog-design {
         width: calc(100% - 40px)!important;
@@ -75,6 +74,9 @@
         width: calc(100% - 40px)!important;
         margin-right: 0px;
         margin-left: 0px;
+    }
+    .menus {
+        margin-top: 10px!important;
     }
 }
 

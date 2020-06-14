@@ -82,9 +82,17 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
+.menus {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+}
+.menus a {
+    margin-left: 30px;
+}
 .flex_global {
     display: flex;
 }
@@ -250,6 +258,8 @@ body {
     font-family: var(--inter);
     font-size: 14px;
     font-weight: 700;
+    display: flex;
+    padding: 10px 0px;
 }
 
 .links {
@@ -264,6 +274,12 @@ body {
     margin-left: 30px;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+.kList {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
 }
 
 .menu_link {

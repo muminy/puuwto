@@ -3,7 +3,6 @@ import Header from '../components/Header';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Api } from '../constant/Api';
-import Flex from '../components/Flex';
 import Footer from '../components/Footer';
 
 const Index = () => {
@@ -30,9 +29,9 @@ const Index = () => {
       <div className="info_company">
         <header className="header_blogs">
           <div className="title_blog">Ne aramıştın ?</div>
-          <Flex width="50%" wrap>
+          <div className="kList">
             {category.map((item, index) => <div key={item.id} className="category_items">{item.id}</div>)}
-          </Flex>
+          </div>
         </header>
       </div>
       <div className="blogs_all">

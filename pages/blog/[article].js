@@ -2,6 +2,7 @@ import fetch from "isomorphic-unfetch";
 import Header from '../../components/Header';
 import { Api } from '../../constant/Api';
 import ReactMarkdown from 'react-markdown';
+import Footer from "../../components/Footer";
 
 const Article = ({ content }) => {
   return (
@@ -16,6 +17,7 @@ const Article = ({ content }) => {
           <ReactMarkdown source={content.content} />
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
