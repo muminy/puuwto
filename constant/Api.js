@@ -1,1 +1,1 @@
-export const Api = 'http://localhost:3000/api';
+export const Api = 'https://puuwto.com/api';
