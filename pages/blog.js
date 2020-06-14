@@ -49,7 +49,65 @@ const Blog = () => {
           ))}
         </div>
       </Container>
+      <style jsx>{`
+        .blogs {
+            padding: 40px 0px;
+            display: block;
+        }
 
+        .blog-design > a {
+            color: #fff;
+            font-weight: bold;
+            font-size: 25px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+          -webkit-line-clamp: 1; /* number of lines to show */
+          -webkit-box-orient: vertical;
+        }
+        .blog-design > p {
+            color: rgb(196, 196, 196);
+            font-size: 15px;
+            line-height: 20px;
+            margin-bottom: 0px!important;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+          -webkit-line-clamp: 2; /* number of lines to show */
+          -webkit-box-orient: vertical;
+        }
+        .blog-design {
+            padding: 20px;
+            background-color: #111;
+            border-radius: 5px;
+            width: calc(50% - 25px);
+            margin-right: 25px;
+            margin-bottom: 25px;
+        }
+        .blog-design:nth-child(2n+2){
+            width: 50%;
+            margin-right: 0px;
+        }
+        .blogs_all {
+            width: 100%;
+            padding: 30px 0px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .header_blogs > .title_blog {
+            font-family: 'Poppins', sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .article_main {
+            margin: 0 auto;
+            font-family: 'Inter',-apple-system,BlinkMacSystemFont,Helvetica Neue,Segoe UI,Helvetica,Roboto,Arial,sans-serif;
+            color: #fff;
+        }
+      `}</style>
 
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossOrigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossOrigin="anonymous"></script>
