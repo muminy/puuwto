@@ -1,27 +1,18 @@
 import fetch from "isomorphic-unfetch";
 import Header from '../components/Header';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { Api } from '../constant/Api';
 import Footer from '../components/Footer';
+import { getPosts } from "../constant/getPosts";
 
 const Index = () => {
 
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState(getPosts());
   const [category, setCategory] = useState([
     {id: 'ReactJs'},
     {id: 'VueJs'},
     {id: 'ElectronJs'}
   ])
-  const getBlogs = () => {
-    fetch(Api + '/blog/posts')
-      .then(data => data.json())
-      .then(responseJson => setBlogs(responseJson))
-  }
-
-  useEffect(() => {
-    getBlogs()
-  }, [])
 
   return (
     <div>
