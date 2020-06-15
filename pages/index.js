@@ -1,42 +1,40 @@
-import { CagegoryList } from '../constant/CagegoryList'
-import Header from '../components/Header';
-import { useState } from 'react';
-import Link from 'next/link';
-import Head from 'next/head';
-import Footer from '../components/Footer';
+import { CagegoryList } from "../constant/CagegoryList";
+import Header from "../components/Header";
+import { useState } from "react";
+import Link from "next/link";
 import { getPosts } from "../constant/getPosts";
-import BlogCard from '../components/BlogCard';
+import BlogCard from "../components/BlogCard";
+import Layout from "../components/Layout";
 
 const Index = () => {
-
   const [blogs, setBlogs] = useState(getPosts());
-
   return (
-    <div>
-      <Head>
-        <title>puuwto.com</title>
-      </Head>
-      <Header href="blog" />
+    <Layout title="">
       <div className="info_company">
         <header className="header_blogs">
-          <div className="title_blog">Ne aramıştın ?</div>
+          <div className="title_blog">
+            Ne aramıştın ?
+          </div>
           <div className="kList">
-            {CagegoryList().map((item, index) => {
+            {CagegoryList().map(item => {
               return (
-                <Link 
-                  href='/category/[slug]'
-                  as={'/category/' + item.slug} 
-                  key={item.id}>
-                  <a className="category_items">{item.id}</a>
+                <Link
+                  href="/category/[slug]"
+                  as={"/category/" + item.slug}
+                  key={item.id}
+                >
+                  <a className="category_items">
+                    {item.id}
+                  </a>
                 </Link>
-              )
+              );
             })}
           </div>
         </header>
       </div>
       <div className="blogs_all">
-        {blogs.map((item, index) => (
-          <BlogCard 
+        {blogs.map(item => (
+          <BlogCard
             key={item.slug}
             category={item.kategori}
             info={item.info}
@@ -45,9 +43,8 @@ const Index = () => {
           />
         ))}
       </div>
-      <Footer />
-    </div>
-  )
-}
+    </Layout>
+  );
+};
 
 export default Index;

@@ -56,6 +56,10 @@
         --width: 90%;
         --contentWidth: 90%
     }
+    .layout {
+        width: var(--width);
+        margin: 0 auto;
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -86,8 +90,6 @@
 
 @media only screen and (max-width: 700px) {
     .header {
-        display: block!important;
-        text-align: center;
         padding: 5px 0px!important;
     }
     .search_area {
