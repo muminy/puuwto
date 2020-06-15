@@ -24,7 +24,6 @@ const Category = ({info}) => {
       <div className="blogs_all">
         {posts.map((item, index) => (
           <div key={index} className="blog-design">
-            <div className="kate"># ReactJs</div>
             <Link href={'/blog/' + item.slug}>
               <a>{item.title}</a>
             </Link>

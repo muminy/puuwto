@@ -3,8 +3,9 @@ import Header from '../../components/Header';
 import { Api } from '../../constant/Api';
 import ReactMarkdown from 'react-markdown';
 import Footer from "../../components/Footer";
-
+import { useRouter } from 'next/router'
 const Article = ({ content }) => {
+  const router = useRouter();
   return (
     <div>
       <Header />
@@ -14,7 +15,7 @@ const Article = ({ content }) => {
           <time>Friday, May 1st 2020 (about 1 month ago)</time>
         </header>
         <div className="content">
-          <ReactMarkdown source={content.content} />
+          <ReactMarkdown source={require('../../blog/' + router.query.article + '.md').default} />
         </div>
       </div>
       <Footer />
