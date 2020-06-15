@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Footer from '../../components/Footer';
 import { getPosts } from "../../constant/getPosts";
 import { CagegoryList } from "../../constant/CagegoryList";
+import Head from 'next/head';
+import BlogCard from "../../components/BlogCard";
 
 const Category = ({info}) => {
     
@@ -14,6 +16,9 @@ const Category = ({info}) => {
 
   return (
     <div>
+      <Head>
+        <title>{info[0].id} | puuwto.com</title>
+      </Head>
       <Header href="blog" />
       <div className="info_company">
         <header className="header_blogs">
@@ -22,14 +27,13 @@ const Category = ({info}) => {
         </header>
       </div>
       <div className="blogs_all">
-        {posts.map((item, index) => (
-          <div key={index} className="blog-design">
-            <Link href={'/blog/' + item.slug}>
-              <a>{item.title}</a>
-            </Link>
-            <p>{item.info}</p>
-            <time>Monday, May 11th 2020 (about 1 month ago)</time>
-          </div>
+        {posts.map((item) => (
+          <BlogCard
+            key={item.slug}
+            title={item.title}
+            info={item.info}
+            slug={item.slug}
+          />
         ))}
       </div>
       <Footer />
@@ -38,7 +42,6 @@ const Category = ({info}) => {
 }
 
 Category.getInitialProps = ({ req, query }) => {
-    
     const CateInfo = CagegoryList().filter(category => category.slug === query.slug);
     return { info: CateInfo };
 }
