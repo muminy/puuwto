@@ -14,7 +14,7 @@ const Article = () => {
     (posts) => posts.slug === router.query.article
   );
   return (
-    <Layout title={content.title}>
+    <Layout title={content?.title}>
       <ArticleContent
         content={content?.content}
         title={content?.title}
