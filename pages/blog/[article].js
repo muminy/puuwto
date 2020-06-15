@@ -9,7 +9,7 @@ const Article = ({content}) => {
   return (
     <div>
       <Head>
-        <title> | puuwto.com</title>
+        <title> {content.title} | puuwto.com</title>
       </Head>
       <Header />
       <ArticleContent 
