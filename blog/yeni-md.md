@@ -1,8 +1,8 @@
 ## Selam
 
-Et cillum ex nostrud consectetur et.Reprehenderit quis sint non Lorem officia id excepteur qui sit ut.Ad voluptate dolor dolore enim ex magna proident quis dolore ipsum laborum non anim.Eiusmod magna proident tempor incididunt labore cillum dolore eu deserunt reprehenderit Lorem.Cupidatat aliquip voluptate aliquip cupidatat sint ad dolor.Laborum esse cupidatat elit magna.**Aliqua fugiat sunt laboris** qui exercitation cillum id aute duis.
+Et cillum ex nostrud consectetur et.Reprehenderit quis sint non Lorem officia id excepteur qui sit ut. Ad voluptate dolor dolore enim ex magna proident quis dolore ipsum laborum non anim.Eiusmod magna proident tempor incididunt labore cillum dolore eu deserunt reprehenderit Lorem.Cupidatat aliquip voluptate aliquip cupidatat sint ad dolor.Laborum esse cupidatat elit magna.**Aliqua fugiat sunt laboris** qui exercitation cillum id aute duis.
 
-Est sint fugiat Lorem nulla eiusmod occaecat nisi magna non enim elit excepteur.Magna nostrud laborum ad **excepteur est consectetur.Incididunt mini**m sunt cupidatat in veniam labore cillum eu.Lorem in nostrud deserunt irure incididunt excepteur.Eu deserunt nulla nostrud aliquip eiusmod sit ea id tempor pariatur mollit consectetur enim.Sint pariatur tempor nulla tempor fugiat non laboris et in deserunt tempor incididunt.Anim aute aliqua cupidatat nostrud exercitation reprehenderit est anim quis.
+Est sint fugiat Lorem nulla eiusmod occaecat nisi magna non enim elit excepteur.Magna nostrud laborum ad **excepteur est consectetur.Incididunt mini** sunt cupidatat in veniam labore cillum eu.Lorem in nostrud deserunt irure incididunt excepteur.Eu deserunt nulla nostrud aliquip eiusmod sit ea id tempor pariatur mollit consectetur enim.Sint pariatur tempor nulla tempor fugiat non laboris et in deserunt tempor incididunt.Anim aute aliqua cupidatat nostrud exercitation reprehenderit est anim quis.
 
 
 # Nasıl gidiyor ?

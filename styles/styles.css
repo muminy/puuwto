@@ -1,21 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,900;1,500;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 /*
 
-font-family: 'Open Sans', sans-serif;
-font-family: 'Raleway', sans-serif;
+font-family: 'Montserrat', sans-serif;
 font-family: 'Poppins', sans-serif;
-
 */
 
 
 :root {
-    --opensans: 'Open Sans', -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
-    --raleway: 'Raleway', sans-serif;
-    --poppins: 'Poppins', sans-serif;
-    --inter: 'Inter', -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    --poppins: 'Poppins', -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
 
 body {
@@ -26,6 +18,7 @@ body {
 .layout {
     width: var(--width);
     margin: 0 auto;
+    font-family: var(--poppins);
 }
 
 .header {
@@ -41,11 +34,11 @@ body {
 
 
 .logoText {
-    font-family: 'Poppins', sans-serif;
     font-weight: 800;
     font-size: 26px;
     text-decoration: none;
     color: rgb(34, 34, 34);
+    font-family: 'Poppins', sans-serif;
 }
 .logoText span {
     color: tomato;
@@ -84,7 +77,6 @@ body {
 }
 
 .header_blogs .title_blog {
-    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -113,7 +105,6 @@ body {
     border-bottom: 2px solid #111;
     border-top: 1px solid #111;
     padding: 5px 10px;
-    font-family: 'Poppins', sans-serif;
     line-height: 18px;
     font-weight: 500;
     font-size: 14px;
@@ -125,7 +116,6 @@ body {
 .header_blogs p {
     margin-top: 0px;
     width: 50%;
-    font-family: var(--inter);
 }
 .category_items:hover {
     border-color: tomato;
@@ -158,7 +148,7 @@ body {
 }
 
 
-.blog-design a {
+.blog-design a:not(.kate) {
     color: #111;
     font-weight: bold;
     font-size: 25px;
@@ -168,14 +158,12 @@ body {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
     text-decoration: none;
 }
 
 .blog-design p {
     color: rgb(87, 87, 87);
-    font-size: 17px;
+    font-size: 15px;
     line-height: 20px;
     margin-bottom: 10px!important;
     overflow: hidden;
@@ -183,7 +171,6 @@ body {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     margin-top: 5px;
 }
@@ -195,15 +182,14 @@ body {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 600;
+    font-weight: bold;
     margin-top: 5px;
 }
 .blog-design .kate {
-    font-weight: bold;
-    font-family: 'Raleway', sans-serif;
     font-size: 14px;
     margin-bottom: 5px;
+    text-decoration: none;
+    color: #111111;
 }
 .article_main header {
     text-align: center;
@@ -212,7 +198,6 @@ body {
 .article_main header .title {
     color: #000;
     font-size: 36px;
-    font-family: var(--opensans);
     text-align: center;
     font-weight: bold;
     margin-bottom: 10px;
@@ -223,20 +208,11 @@ body {
 .article_main header time {
     color: rgb(105, 105, 105);
     font-size: 16px;
-    font-family: var(--opensans);
     text-align: center;
     font-weight: 500;
 }
-.content {
-    font-family: var(--opensans);
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 24px;
-    color: #000;
-}
 .content h1, h2, h3, h4, h5, h6 {
-    font-weight: 900;
-    font-family: var(--opensans);
+    font-weight: 700;
     font-size: 22px;
     margin-bottom: 10px;
 }
@@ -244,6 +220,9 @@ body {
 .content p {
     margin-bottom: 20px;
     margin-top: 0px;
+    line-height: 26px;
+    font-size: 16px;
+    letter-spacing: -0.0682px;
 }
 .content strong {
     color: rgb(47, 48, 47);
@@ -269,7 +248,6 @@ body {
 .footer {
     margin: 0 auto;
     margin-top: 60px;
-    font-family: var(--inter);
     font-size: 14px;
     font-weight: 700;
     display: flex;
@@ -301,11 +279,9 @@ body {
     color: rgb(0, 0, 0);
     text-decoration: none;
     font-size: 14px;
-    font-family: var(--inter);
 }
 
 .githubLink {
-    font-family: var(--inter);
     font-weight: 700;
     font-size: 19px;
     color: black;
