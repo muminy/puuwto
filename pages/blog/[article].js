@@ -16,6 +16,7 @@ const Article = ({content}) => {
       <Header />
       <ArticleContent 
         content={content.content}
+        slug={content.slug}
         title={content.title} />
       <Footer />
     </div>
