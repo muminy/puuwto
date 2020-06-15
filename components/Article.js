@@ -1,6 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 
-export default function ({title, content, slug}) {
+export default function ({title, content}) {
     return (
         <div className="article_main">
             <header>
@@ -8,7 +8,7 @@ export default function ({title, content, slug}) {
                 <time>Friday, May 1st 2020 (about 1 month ago)</time>
             </header>
             <div className="content">
-                <ReactMarkdown source={require('../blog/' + slug + '.md').default} />
+                <ReactMarkdown source={content} />
             </div>
         </div>
     )

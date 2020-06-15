@@ -4,20 +4,35 @@ import { Api } from '../../constant/Api';
 import ArticleContent from '../../components/Article';
 import Footer from "../../components/Footer";
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from "react";
+import Loading from "../../components/Loading";
+const Article = () => {
 
-const Article = ({content}) => {
+  const route = useRouter();
+  const [content, setContent] = useState(null);
+  
+  const getContent = () => {
+    fetch(Api + '/blog/' + route.query.article)
+    .then(responseJson => responseJson.json())
+    .then(responseJson => setContent(responseJson.content))
+  }
 
-  console.log(content)
+  useEffect(() => {
+    getContent()
+  }, [])
+
   return (
     <div>
       <Head>
         <title> | puuwto.com</title>
       </Head>
       <Header />
-      <ArticleContent 
-        content={content.content}
-        slug={content.slug}
-        title={content.title} />
+      {content ? (
+        <ArticleContent 
+          content={content.content}
+          title={content.title} />
+      ) : <Loading />}
       <Footer />
     </div>
   )
