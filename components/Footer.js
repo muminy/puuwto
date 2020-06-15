@@ -8,14 +8,10 @@ const Footer = ({ posts }) => {
             © 2020 puuwto
             <ul className="links">
                 <li>
-                    <Link href={'https://github.com/vasdeJ'}>
-                        <a className="menu_link"> <GithubIcon size={20} color="#111" /></a>
-                    </Link>
+                    <a href="https://github.com/vasdeJ" className="menu_link"> <GithubIcon size={20} color="#111" /></a>
                 </li>
                 <li>
-                    <Link href={'https://twitter.com/mmnyldrm'}>
-                        <a className="menu_link"> <TwitterIcon size={20} color="#111" /></a>
-                    </Link>
+                    <a href="https://twitter.com/mmnyldrm" className="menu_link"> <TwitterIcon size={20} color="#111" /></a>
                 </li>
             </ul>
         </div>

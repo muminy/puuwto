@@ -5,7 +5,6 @@ import ReactMarkdown from 'react-markdown';
 import Footer from "../../components/Footer";
 
 const Article = ({ content }) => {
-  console.log(content)
   return (
     <div>
       <Header />

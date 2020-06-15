@@ -78,6 +78,9 @@
     .menus {
         margin-top: 10px!important;
     }
+    .header_blogs p {
+        width: 100%!important;
+    }
 }
 
 
