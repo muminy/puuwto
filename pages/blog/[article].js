@@ -13,12 +13,12 @@ const Article = () => {
   return (
     <div>
       <Head>
-        <title> {content.title} | puuwto.com</title>
+        <title> {content?.title} | puuwto.com</title>
       </Head>
       <Header />
       <ArticleContent 
-        content={content.content}
-        title={content.title} />
+        content={content?.content}
+        title={content?.title} />
       <Footer />
     </div>
   )
