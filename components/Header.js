@@ -13,7 +13,7 @@ export default function ({ href }) {
         <Link href={{ pathname: "/" }}>
           <a className="menu_link"> Blog </a>
         </Link>
-        <Link href={{ pathname: "/" }}>
+        <Link href={{ pathname: "/apps" }}>
           <a className="menu_link"> Apps </a>
         </Link>
       </div>

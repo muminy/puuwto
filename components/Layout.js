@@ -5,7 +5,7 @@ export default function ({ title, children }) {
   return (
     <div className="layout">
       <Head>
-        <title>{title} | puuwto.com</title>
+        <title>{title + ' |'} puuwto.com</title>
         <meta
           name="viewport"
           content="initial-scale=1.0, width=device-width"
