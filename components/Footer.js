@@ -4,7 +4,7 @@ import Link from "next/link";
 const Footer = ({ posts }) => {
   return (
     <div className="footer">
-      © 2020 puuwtoş
+      © 2020 puuwto
       <ul className="links">
         <li>
           <a

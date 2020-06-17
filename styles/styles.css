@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700;800;900&display=swap');
 
 
 :root {
-    --poppins: 'Poppins', -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    --Inter: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
 .layout {
     width: var(--width);
     margin: 0 auto;
-    font-family: var(--poppins);
+    font-family: var(--Inter);
 }
 
 .header {
@@ -208,6 +208,7 @@ body {
 .header_blogs p {
     margin-top: 0px;
     width: 50%;
+    font-weight: 300;
 }
 .category_items:hover {
     border-color: tomato;
@@ -263,7 +264,7 @@ body {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    font-weight: 400;
+    font-weight: 300;
     margin-top: 5px;
 }
 .blog-design time {
@@ -298,8 +299,8 @@ body {
     letter-spacing: -0.015em;
 }
 .article_main header time {
-    color: rgb(105, 105, 105);
-    font-size: 16px;
+    color: rgb(61, 61, 61);
+    font-size: 14px;
     text-align: center;
     font-weight: 500;
 }
@@ -315,6 +316,7 @@ body {
     line-height: 26px;
     font-size: 16px;
     letter-spacing: -0.0682px;
+    font-weight: 300;
 }
 .content strong {
     color: rgb(47, 48, 47);
