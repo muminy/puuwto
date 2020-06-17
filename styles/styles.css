@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700;800;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --Inter: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    --poppins: 'Inter', -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
 
 body {
@@ -13,7 +12,7 @@ body {
 .layout {
     width: var(--width);
     margin: 0 auto;
-    font-family: var(--Inter);
+    font-family: var(--poppins);
 }
 
 .header {
@@ -208,7 +207,6 @@ body {
 .header_blogs p {
     margin-top: 0px;
     width: 50%;
-    font-weight: 300;
 }
 .category_items:hover {
     border-color: tomato;
@@ -227,13 +225,18 @@ body {
     margin-right: 15px;
     padding: 20px;
     border-radius: 5px;
+    border-left: 1px solid #eee;
+    border-right: 3px solid #ddd;
+    border-bottom: 3px solid #ddd;
+    border-top: 1px solid #eee;
+    margin-bottom: 30px;
+}
+.blog-design:hover {
     border-left: 1px solid #111;
     border-right: 3px solid #111;
     border-bottom: 3px solid #111;
     border-top: 1px solid #111;
-    margin-bottom: 30px;
 }
-
 .blog-design:nth-child(2n+2) {
     margin-left: 15px;
     width: calc(50% - 59px);
@@ -243,7 +246,7 @@ body {
 
 .blog-design a:not(.kate) {
     color: #111;
-    font-weight: bold;
+    font-weight: 900;
     font-size: 25px;
     margin-bottom: 5px;
     overflow: hidden;
@@ -252,6 +255,10 @@ body {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     text-decoration: none;
+}
+
+.blog-design a:not(.kate):hover {
+    text-decoration: underline;
 }
 
 .blog-design p {
@@ -264,7 +271,7 @@ body {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    font-weight: 300;
+    font-weight: 400;
     margin-top: 5px;
 }
 .blog-design time {
@@ -284,6 +291,9 @@ body {
     text-decoration: none;
     color: #111111;
 }
+.blog-design .kate:hover {
+    text-decoration: underline;
+}
 .article_main header {
     text-align: center;
     padding: 35px 0px;
@@ -299,8 +309,8 @@ body {
     letter-spacing: -0.015em;
 }
 .article_main header time {
-    color: rgb(61, 61, 61);
-    font-size: 14px;
+    color: rgb(105, 105, 105);
+    font-size: 16px;
     text-align: center;
     font-weight: 500;
 }
@@ -316,7 +326,6 @@ body {
     line-height: 26px;
     font-size: 16px;
     letter-spacing: -0.0682px;
-    font-weight: 300;
 }
 .content strong {
     color: rgb(47, 48, 47);
