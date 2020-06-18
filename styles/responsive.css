@@ -4,57 +4,49 @@
 
 @media only screen and (min-width: 1960px) {
     :root {
-        --width: 50%;
-        --contentWidth: 50%
+        --width: 45%;
     }
 }
 
 @media only screen and (max-width: 1960px) {
     :root {
         --width: 50%;
-        --contentWidth: 50%
     }
 }
 
 @media only screen and (max-width: 1800px) {
     :root {
         --width: 60%;
-        --contentWidth: 60%
     }
 }
 
 @media only screen and (max-width: 1600px) {
     :root {
         --width: 70%;
-        --contentWidth: 70%
     }
 }
 
 @media only screen and (max-width: 1490px) {
     :root {
         --width: 75%;
-        --contentWidth: 75%
     }
 }
 
 @media only screen and (max-width: 1390px) {
     :root {
         --width: 80%;
-        --contentWidth: 80%
     }
 }
 
 @media only screen and (max-width: 1290px) {
     :root {
         --width: 85%;
-        --contentWidth: 85%
     }
 }
 
 @media only screen and (max-width: 1190px) {
     :root {
         --width: 90%;
-        --contentWidth: 90%
     }
     .layout {
         width: var(--width);

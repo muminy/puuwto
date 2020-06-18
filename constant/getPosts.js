@@ -35,6 +35,34 @@ export const getPosts = () => {
             slug: 'electron-js',
             kategori: 'electron-js',
             info: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+        },{
+            id: 6,
+            title: 'Yeni 2',
+            content: require('../blog/yeni-2.md').default,
+            slug: 'yeni-2',
+            kategori: 'electron-js',
+            info: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+        },{
+            id: 7,
+            title: 'Merhaba tüm alem',
+            content: require('../blog/merhaba.md').default,
+            slug: 'merhaba',
+            kategori: 'electron-js',
+            info: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+        },{
+            id: 8,
+            title: 'Alem kral görsün',
+            content: require('../blog/mrb-tr.md').default,
+            slug: 'mrb-tr',
+            kategori: 'deno-js',
+            info: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+        },{
+            id: 9,
+            title: 'Şampiyon Trabzon!',
+            content: require('../blog/ss.md').default,
+            slug: 'ss',
+            kategori: 'electron-js',
+            info: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
         }
     ].reverse()
 }
