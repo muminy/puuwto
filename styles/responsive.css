@@ -8,9 +8,9 @@
     }
 }
 
-@media only screen and (max-width: 1960px) {
+@media only screen and (max-width: 2000px) {
     :root {
-        --width: 50%;
+        --width: 45%;
     }
 }
 
