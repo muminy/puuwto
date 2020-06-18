@@ -10,15 +10,10 @@ export default function () {
 
   const ekle = () => {
     event.preventDefault();
+    githubSignin();
   };
 
-  useEffect(() => {
-      console.log(githubSignin())
-  }, []);
-
-  useEffect(() => {
-    console.log(posts);
-  }, [posts]);
+  
   return (
     <Layout title="Admin">
       <button className="github_w_login" onClick={(event) => ekle(event)}>Github İle Giriş Yap</button>
