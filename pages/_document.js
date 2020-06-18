@@ -97,6 +97,29 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
+        {/* <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAIlnYCKDdQcrM7aUsBDfvMHeZ3TzOSdwE",
+    authDomain: "puuwto-a6ba9.firebaseapp.com",
+    databaseURL: "https://puuwto-a6ba9.firebaseio.com",
+    projectId: "puuwto-a6ba9",
+    storageBucket: "puuwto-a6ba9.appspot.com",
+    messagingSenderId: "679279776588",
+    appId: "1:679279776588:web:9deb3e5695451134fe35e9",
+    measurementId: "G-ZSVDXJXBKN"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script> */}
           <Main />
           <NextScript />
         </body>
