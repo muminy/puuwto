@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function ({ href }) {
+export default function () {
   return (
     <div className="header">
       <Link href={{ pathname: "/" }}>

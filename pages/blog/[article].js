@@ -1,9 +1,4 @@
-import fetch from "isomorphic-unfetch";
-import Header from "../../components/Header";
-import { Api } from "../../constant/Api";
 import ArticleContent from "../../components/Article";
-import Footer from "../../components/Footer";
-import Head from "next/head";
 import { useRouter } from "next/router";
 import { getPosts } from "../../constant/getPosts";
 import Layout from "../../components/Layout";

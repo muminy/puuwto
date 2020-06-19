@@ -8,12 +8,13 @@ export default function ({ pagenation, data, tag }) {
     pageFill(data.length),
   );
 
-  console.log(pageFill(data.length));
-
   return (
     <div className="pagination">
       {tag ? (
-        <Link href={`/category/[tag]`} as={`/category/${tag}`}>
+        <Link
+          href={`/category/[tag]`}
+          as={`/category/${tag}`}
+        >
           <a
             className={
               pagenation === 1 || !pagenation

@@ -4,15 +4,13 @@ export default function ({ slug, title, info, category }) {
     <div key={slug} className="blog-design">
       {category ? (
         <Link
-          href='/category/[slug]'
+          href="/category/[tag]"
           as={"/category/" + category}
         >
           <a className="kate"># {category}</a>
         </Link>
       ) : null}
-      <Link 
-        href="/blog/[article]" 
-        as={"/blog/" + slug} >
+      <Link href="/blog/[article]" as={"/blog/" + slug}>
         <a>{title}</a>
       </Link>
       <p>{info}</p>

@@ -1,13 +1,8 @@
-import { useRouter } from "next/router";
-import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
 import { getPosts } from "../../../constant/getPosts";
 import { CagegoryList } from "../../../constant/CagegoryList";
-import Head from "next/head";
 import BlogCard from "../../../components/BlogCard";
 import Layout from "../../../components/Layout";
 import { pageData } from "../../../utils/helper";
-import Categorys from "../../../components/Categorys";
 import Pagination from "../../../components/pagination";
 import { useEffect, useState } from "react";
 import CategoryHeader from "../../../components/CategoryHeader";

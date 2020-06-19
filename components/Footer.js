@@ -1,5 +1,4 @@
 import { GithubIcon, TwitterIcon } from "../constant/Icons";
-import Link from "next/link";
 
 const Footer = ({ posts }) => {
   return (
