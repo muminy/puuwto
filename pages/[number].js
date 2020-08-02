@@ -10,10 +10,10 @@ import Link from "next/link";
 import { NotFoundPosts } from "components/Bootstrap";
 import LanguageContext from "context/LanguageContext";
 
-export default function Read({ posts, page }) {
+export default function Read({ posts, number }) {
   const { lang } = useContext(LanguageContext);
   const [postList, setPostList] = useState(
-    pageData(page, posts),
+    pageData(number, posts),
   );
   const [value, setValue] = useState("");
   const [pageList, setPages] = useState(pages(posts));
@@ -29,7 +29,7 @@ export default function Read({ posts, page }) {
         );
         return [...filter];
       });
-    } else setPostList(pageData(page, posts));
+    } else setPostList(pageData(number, posts));
   }, [value]);
 
   return (
@@ -53,7 +53,7 @@ export default function Read({ posts, page }) {
             ))}
           </div>
           <Pagination
-            page={parseInt(page)}
+            page={parseInt(number)}
             pageList={pageList}
           />
         </>
@@ -67,5 +67,5 @@ export default function Read({ posts, page }) {
 Read.getInitialProps = async ({ query }) => {
   const apid = await fetch(`${api}/getBlogs`);
   const jsonData = await apid.json();
-  return { posts: jsonData, page: query.page };
+  return { posts: jsonData, number: query.number };
 };
