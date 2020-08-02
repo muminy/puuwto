@@ -2,21 +2,12 @@ import "../styles/global.css";
 import "../styles/bootstrap.css";
 import "../styles/responsive.css";
 import { ThemeProvider } from "../context/ThemeContext";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { LanguageProvider } from "../context/LanguageContext";
 import { language } from "../constant/language";
 
-function useStickyState(defaultValue, key) {
-  const [value, setValue] = useState("dark");
-  useEffect(() => {
-    setValue(localStorage.getItem(key) ?? defaultValue);
-  }, [value]);
-
-  return [value, setValue];
-}
-
 export default function MyApp({ Component, pageProps }) {
-  const [theme, setTheme] = useStickyState("dark", "theme");
+  const [theme, setTheme] = useState("dark");
   const [lang, setLang] = useState("tr");
   const themeValue = {
     theme,

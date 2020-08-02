@@ -5,9 +5,6 @@ export const LogoIcon = ({ size, color, sw }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <svg
-      version="1.1"
-      id="Capa_1"
-      xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
       viewBox="0 0 463.6 463.6"
@@ -102,7 +99,6 @@ export const StarIcon = ({ size, color, sw }) => {
 
 export const GitForkIcon = ({ size, color, sw }) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width={size}
     height={size}
     viewBox="0 0 24 24"
