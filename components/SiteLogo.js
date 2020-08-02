@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { LogoIcon } from "constant/icons";
-import { siteConfig } from "constant/config";
+import { LogoIcon } from "../constant/icons";
+import { siteConfig } from "../constant/config";
 
 export default function () {
   return (

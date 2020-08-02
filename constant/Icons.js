@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ThemeContext from "context/ThemeContext";
+import ThemeContext from "../context/ThemeContext";
 
 export const LogoIcon = ({ size, color, sw }) => {
   const { theme } = useContext(ThemeContext);

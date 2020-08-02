@@ -1,6 +1,6 @@
-import Layout from "components/Layout";
+import Layout from "../components/Layout";
 import { useState } from "react";
-import MovieList from "components/MovieList";
+import MovieList from "../components/MovieList";
 
 export default function () {
   const [tags, setTags] = useState([
@@ -43,7 +43,9 @@ export default function () {
       </div>
       <div className="movie_list flex">
         {tags.map((item, key) => (
-          <div className="list_of_tag border">{item}</div>
+          <div key={key} className="list_of_tag border">
+            {item}
+          </div>
         ))}
       </div>
       {movies.map((item) => (

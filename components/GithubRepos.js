@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { StarIcon, GitForkIcon } from "constant/icons";
+import { useState } from "react";
+import { StarIcon } from "../constant/icons";
 export default function GithubRepos({ reposes }) {
   const [repos, setRepos] = useState([]);
   return (

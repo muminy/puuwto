@@ -1,10 +1,11 @@
-import Layout from "components/Layout";
 import Link from "next/link";
 import { useContext, useEffect } from "react";
-import LanguageContext from "context/LanguageContext";
-import GithubRepos from "components/GithubRepos";
 import fetch from "isomorphic-unfetch";
-import { siteConfig } from "constant/config";
+import Layout from "../components/Layout";
+import LanguageContext from "../context/LanguageContext";
+import GithubRepos from "../components/GithubRepos";
+import { siteConfig } from "../constant/config";
+
 export default function Home({ reposes }) {
   const { lang } = useContext(LanguageContext);
   return (

@@ -1,7 +1,7 @@
-import Layout from "components/Layout";
-import ArticleComponent from "components/Article";
+import Layout from "../../../components/Layout";
+import ArticleComponent from "../../../components/Article";
 import fetch from "isomorphic-unfetch";
-import { api } from "helper/api";
+import { api } from "../../../helper/api";
 export default function BlogContent(props) {
   return (
     <Layout>

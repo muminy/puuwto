@@ -1,8 +1,8 @@
 import { Container, Row, Col } from "./Bootstrap";
 import SiteLogo from "./SiteLogo";
 import { useContext } from "react";
-import ThemeContext from "context/ThemeContext";
-import LanguageContext from "context/LanguageContext";
+import ThemeContext from "../context/ThemeContext";
+import LanguageContext from "../context/LanguageContext";
 import { useRouter } from "next/router";
 
 export default function ({ opacity }) {

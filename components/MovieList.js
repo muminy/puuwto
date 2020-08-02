@@ -1,4 +1,4 @@
-import { StarIcon } from "constant/icons";
+import { StarIcon } from "../constant/icons";
 import Link from "next/link";
 
 export default function ({

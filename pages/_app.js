@@ -1,10 +1,10 @@
-import "styles/global.css";
-import "styles/bootstrap.css";
-import "styles/responsive.css";
-import { ThemeProvider } from "context/ThemeContext";
+import "../styles/global.css";
+import "../styles/bootstrap.css";
+import "../styles/responsive.css";
+import { ThemeProvider } from "../context/ThemeContext";
 import { useState, useEffect } from "react";
-import { LanguageProvider } from "context/LanguageContext";
-import { language } from "constant/language";
+import { LanguageProvider } from "../context/LanguageContext";
+import { language } from "../constant/language";
 
 function useStickyState(defaultValue, key) {
   const [value, setValue] = useState("dark");

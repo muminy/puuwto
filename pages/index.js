@@ -1,12 +1,15 @@
-import Layout from "components/Layout";
-import BlogCard from "components/BlogCard";
-import { api } from "helper/api";
+import Layout from "../components/Layout";
+import BlogCard from "../components/BlogCard";
+import { api } from "../helper/api";
 import fetch from "isomorphic-unfetch";
 import { useState, useEffect, useContext } from "react";
-import { pageCounter, pageData } from "helper/pagination";
-import Sayfalama from "components/Sayfalama";
-import { NotFoundPosts } from "components/Bootstrap";
-import LanguageContext from "context/LanguageContext";
+import {
+  pageCounter,
+  pageData,
+} from "../helper/pagination";
+import Sayfalama from "../components/Sayfalama";
+import { NotFoundPosts } from "../components/Bootstrap";
+import LanguageContext from "../context/LanguageContext";
 
 export default function Read({ posts }) {
   const { lang } = useContext(LanguageContext);

@@ -1,10 +1,10 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { useContext } from "react";
-import ThemeContext from "context/ThemeContext";
+import ThemeContext from "../context/ThemeContext";
 import {
   vsDark,
   githubLight,
-} from "helper/SyntaxHighligherStyles";
+} from "../helper/SyntaxHighligherStyles";
 
 const CodeBlock = ({ language, value }) => {
   const { theme } = useContext(ThemeContext);
