@@ -5,7 +5,7 @@ import ThemeContext from "context/ThemeContext";
 import LanguageContext from "context/LanguageContext";
 import { useRouter } from "next/router";
 
-export default function () {
+export default function ({ opacity }) {
   const { theme, setTheme } = useContext(ThemeContext);
   const { lang, setLang, type } = useContext(
     LanguageContext,
