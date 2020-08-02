@@ -1,21 +1,21 @@
-import Footer from "./Footer";
-import Header from "./Header";
 import Head from "next/head";
+import { useContext } from "react";
+import ThemeContext from "context/ThemeContext";
+import { Container } from "./Bootstrap";
+import Header from "./Header";
+import Footer from "./Footer";
+
 export default function ({ title, children }) {
   return (
-    <div className="layout">
+    <React.Fragment>
       <Head>
         <title>
-          {title} {title ? " |" : null} puuwto.com {!title ? '| Kişisel blog' : null}
+          {title} {title ? " |" : null} feewer.com
         </title>
-        <meta
-          name="viewport"
-          content="initial-scale=1.0, width=device-width"
-        />
       </Head>
       <Header />
-      <main>{children}</main>
+      <Container>{children}</Container>
       <Footer />
-    </div>
+    </React.Fragment>
   );
 }

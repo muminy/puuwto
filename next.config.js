@@ -1,15 +1,14 @@
+const isDev = process.env.NODE_ENV === "development";
+
 module.exports = {
   env: {
-    API_KEY: '29c40030-b009-4e1e-a737-69d10bd2e4ca',
-    PER_PAGE: 8
+    PER_PAGE_BLOG: isDev ? 1 : 5,
   },
-  pageExtensions: ['mdx', 'jsx', 'js', 'ts', 'tsx', 'md'],
-  webpack: (config, options) => {
+  webpack: (config) => {
     config.module.rules.push({
-      test:/\.md$/,
-      use: 'raw-loader',
-    })
-
-    return config
+      test: /\.md$/,
+      use: "raw-loader",
+    });
+    return config;
   },
-}
+};

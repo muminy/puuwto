@@ -1,1 +1,0 @@
-export const Api = 'http://puuwto.com//api';

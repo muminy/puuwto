@@ -1,17 +1,19 @@
 import ReactMarkdown from "react-markdown";
+import { api } from "helper/api";
+import CodeBlock from "./CodeBlock";
 
-export default function ({ title, content }) {
+export default function ArticleComponent({ posts }) {
+  console.log(posts);
   return (
-    <div className="article_main">
-      <header>
-        <div className="title">{title}</div>
-        <time>
-          Friday, May 1st 2020 (about 1 month ago)
-        </time>
-      </header>
-      <div className="content">
-        <ReactMarkdown source={content} />
+    <div className="content">
+      <header>{posts.title}</header>
+      <div className="flex jcsb mb48">
+        <time>{posts.time}</time>
       </div>
+      <ReactMarkdown
+        source={posts.body}
+        renderers={{ code: CodeBlock }}
+      />
     </div>
   );
 }

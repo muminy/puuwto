@@ -1,111 +1,44 @@
-
-
-
-
-@media only screen and (min-width: 1960px) {
-    :root {
-        --width: 45%;
-    }
+@media only screen and (max-width: 1300px) {
 }
-
-@media only screen and (max-width: 2000px) {
-    :root {
-        --width: 45%;
-    }
+@media only screen and (max-width: 1100px) {
 }
-
-@media only screen and (max-width: 1800px) {
-    :root {
-        --width: 60%;
-    }
+@media only screen and (max-width: 1000px) {
+  .menu_list {
+    padding: 10px 0px;
+  }
+  .menu_list > .menu_link:first-child {
+    margin-left: 0px;
+  }
 }
-
-@media only screen and (max-width: 1600px) {
-    :root {
-        --width: 70%;
-    }
-}
-
-@media only screen and (max-width: 1490px) {
-    :root {
-        --width: 75%;
-    }
-}
-
-@media only screen and (max-width: 1390px) {
-    :root {
-        --width: 80%;
-    }
-}
-
-@media only screen and (max-width: 1290px) {
-    :root {
-        --width: 85%;
-    }
-}
-
-@media only screen and (max-width: 1190px) {
-    :root {
-        --width: 90%;
-    }
-    .layout {
-        width: var(--width);
-        margin: 0 auto;
-    }
-}
-
 @media only screen and (max-width: 800px) {
-    .blogs_all {
-        display: block!important;
-    }
-    .kList {
-        width: 100%!important;
-    }
-    .blogs_all .blog-design {
-        width: calc(100% - 40px)!important;
-        margin-right: 0px;
-        margin-bottom: 20px;
-    }
-    .what_you_want p {
-        width: 100%!important;
-    }
-    .my_apps {
-        width: 100%!important;
-        margin-right: 0px!important;
-        margin-left: 0px!important;
-    }
-    .blogs_all .blog-design:nth-child(2n+2) {
-        width: calc(100% - 40px)!important;
-        margin-right: 0px;
-        margin-left: 0px;
-    }
-    .menus {
-        margin-top: 10px!important;
-    }
-    .header_blogs p {
-        width: 100%!important;
-    }
+  .bigger_header > p {
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+  }
 }
 
-
-@media only screen and (max-width: 700px) {
-    .header {
-        padding: 5px 0px!important;
-    }
-    .search_area {
-        margin-top: 10px;
-        display: flex;
-    }
-    .search_area input {
-        width: 100%;
-    }
+@media only screen and (max-width: 560px) {
+  .repos {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+    margin-left: 0px !important;
+  }
 }
 
-
-
-
-
-
-
-
-
+@media only screen and (max-width: 500px) {
+  .button_list {
+    align-items: center;
+    justify-content: center;
+  }
+  .switch_theme {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .footer {
+    padding-bottom: 10px;
+  }
+}

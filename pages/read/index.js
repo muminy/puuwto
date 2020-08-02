@@ -2,22 +2,15 @@ import Layout from "components/Layout";
 import BlogCard from "components/BlogCard";
 import { api } from "helper/api";
 import fetch from "isomorphic-unfetch";
-import { useState, useEffect, useContext } from "react";
-import { pages, pageData } from "helper/pagination";
+import { useState, useEffect } from "react";
+import { pages } from "helper/pagination";
 import { LeftArrow, RightArrow } from "constant/icons";
 import Pagination from "components/Pagination";
-import Link from "next/link";
-import { NotFoundPosts } from "components/Bootstrap";
-import { language } from "constant/language";
-import LanguageContext from "context/LanguageContext";
-
 export default function Read({ posts }) {
-  const { lang } = useContext(LanguageContext);
-  const [postList, setPostList] = useState(
-    pageData(1, posts),
-  );
+  const [postList, setPostList] = useState(posts);
   const [value, setValue] = useState("");
-  const [pageList, setPages] = useState(pages(posts));
+  const [pageList, setPages] = useState(pages(postList));
+
   useEffect(() => {
     if (value) {
       setPostList((prevState) => {
@@ -29,33 +22,42 @@ export default function Read({ posts }) {
         );
         return [...filter];
       });
-    } else setPostList(pageData(1, posts));
+    } else setPostList(posts);
   }, [value]);
+
   return (
     <Layout title="">
       <div className="bigger_header">
         Blog
-        <p>{lang.index.blog_info}</p>
+        <p>
+          Günlük, kod ve doğandan haberleri sizlerle
+          paylaşıyorum. Hergün yeni şeyler, yeni
+          teknolojiler öğrenmeye çalışıyorum.
+        </p>
       </div>
       <div className="searchBlogs">
         <input
           value={value}
           onChange={(text) => setValue(text.target.value)}
-          placeholder={lang.index.search_input}
+          placeholder="Yazı, blog ara"
         />
       </div>
-      {postList.length ? (
-        <>
-          <div className="blogs">
-            {postList.map((item) => (
-              <BlogCard key={item.id} {...item} />
-            ))}
-          </div>
-          <Pagination page={1} pageList={pageList} />
-        </>
-      ) : (
-        <NotFoundPosts />
-      )}
+      <div className="blogs">
+        {postList.map((item) => (
+          <BlogCard key={item.id} {...item} />
+        ))}
+      </div>
+      <div className="pagination flex">
+        <div className="left_go">
+          <LeftArrow size={25} sw={3} />
+        </div>
+        <div className="list_i flex">
+          <Pagination pageList={pageList} />
+        </div>
+        <div className="right_go">
+          <RightArrow size={25} sw={3} />
+        </div>
+      </div>
     </Layout>
   );
 }
