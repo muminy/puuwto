@@ -4,11 +4,8 @@ import { api } from "helper/api";
 import fetch from "isomorphic-unfetch";
 import { useState, useEffect, useContext } from "react";
 import { pages, pageData } from "helper/pagination";
-import { LeftArrow, RightArrow } from "constant/icons";
 import Pagination from "components/Pagination";
-import Link from "next/link";
 import { NotFoundPosts } from "components/Bootstrap";
-import { language } from "constant/language";
 import LanguageContext from "context/LanguageContext";
 
 export default function Read({ posts }) {

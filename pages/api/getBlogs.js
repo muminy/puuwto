@@ -28,7 +28,6 @@ export default function (req, res) {
         body: content,
         title: data.title.replace(" ", " "),
       };
-    })
-    .filter(Boolean);
+    });
   res.json(posts);
 }
