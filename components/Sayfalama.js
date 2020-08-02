@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function ({ pageList, page }) {
+export default function ({ pageList, number }) {
   return (
     <div className="pagination flex">
       <div className="list_i flex">
@@ -10,7 +10,7 @@ export default function ({ pageList, page }) {
               <a
                 key={key}
                 className={`i ${
-                  item === page ? "active" : ""
+                  item === number ? "active" : ""
                 }`}
               >
                 {item}
@@ -19,13 +19,13 @@ export default function ({ pageList, page }) {
           ) : (
             <Link
               key={key}
-              href={"/[page]"}
+              href={"/[number]"}
               as={`/${item}`}
             >
               <a
                 key={key}
                 className={`i ${
-                  item === page ? "active" : ""
+                  item === number ? "active" : ""
                 }`}
               >
                 {item}

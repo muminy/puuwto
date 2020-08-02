@@ -1,6 +1,6 @@
 const perPage = process.env.PER_PAGE_BLOG;
 
-export const pages = (list) => {
+export const pageCounter = (list) => {
   const count = list.length;
   let pageList = [];
   for (

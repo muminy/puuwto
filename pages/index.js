@@ -3,12 +3,9 @@ import BlogCard from "components/BlogCard";
 import { api } from "helper/api";
 import fetch from "isomorphic-unfetch";
 import { useState, useEffect, useContext } from "react";
-import { pages, pageData } from "helper/pagination";
-import { LeftArrow, RightArrow } from "constant/icons";
-import Pagination from "components/Pagination";
-import Link from "next/link";
+import { pageCounter, pageData } from "helper/pagination";
+import Sayfalama from "components/Sayfalama";
 import { NotFoundPosts } from "components/Bootstrap";
-import { language } from "constant/language";
 import LanguageContext from "context/LanguageContext";
 
 export default function Read({ posts }) {
@@ -17,7 +14,7 @@ export default function Read({ posts }) {
     pageData(1, posts),
   );
   const [value, setValue] = useState("");
-  const [pageList, setPages] = useState(pages(posts));
+  const [pageList, setPages] = useState(pageCounter(posts));
   useEffect(() => {
     if (value) {
       setPostList((prevState) => {
@@ -51,7 +48,7 @@ export default function Read({ posts }) {
               <BlogCard key={item.id} {...item} />
             ))}
           </div>
-          <Pagination page={1} pageList={pageList} />
+          <Sayfalama number={1} pageList={pageList} />
         </>
       ) : (
         <NotFoundPosts />
