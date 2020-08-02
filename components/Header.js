@@ -1,6 +1,4 @@
 import { Container, NavBar } from "./Bootstrap";
-import { useContext } from "react";
-import ThemeContext from "context/ThemeContext";
 import SiteLogo from "./SiteLogo";
 import Link from "next/link";
 import { useRouter } from "next/router";

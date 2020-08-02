@@ -1,6 +1,6 @@
 export const siteConfig = {
-  URL: "feewer.com",
-  name: "Feewer",
+  URL: "puuwto.com",
+  name: "Puuwto",
   github: {
     username: "muminy",
   },
