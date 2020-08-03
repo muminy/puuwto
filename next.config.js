@@ -4,11 +4,16 @@ module.exports = {
   env: {
     PER_PAGE_BLOG: isDev ? 1 : 5,
   },
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     config.module.rules.push({
       test: /\.md$/,
       use: "raw-loader",
-    });
+    }); // Fixes npm packages that depend on `fs` module
+    if (!isServer) {
+      config.node = {
+        fs: "empty",
+      };
+    }
     return config;
   },
 };

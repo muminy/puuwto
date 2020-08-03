@@ -1,8 +1,10 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 import Layout from "components/Layout";
 import ArticleComponent from "components/Article";
-import fetch from "isomorphic-unfetch";
-import { api } from "helper/api";
 export default function BlogContent(props) {
+  console.log(props);
   return (
     <Layout>
       <ArticleComponent {...props} />
@@ -10,14 +12,37 @@ export default function BlogContent(props) {
   );
 }
 
-BlogContent.getInitialProps = async ({ query }) => {
-  const apid = await fetch(`${api}/getBlogs`);
-  const jsonData = await apid.json();
-  return {
-    posts: jsonData.filter(
+export function getServerSideProps({ query }) {
+  let dir;
+  try {
+    dir = fs.readdirSync("./posts/");
+  } catch (err) {
+    // No posts yet
+    return [];
+  }
+  const posts = dir
+    .filter((file) => path.extname(file) === ".md")
+    .map((file) => {
+      const postContent = fs.readFileSync(
+        `./posts/${file}`,
+        "utf8",
+      );
+      const { data, content } = matter(postContent);
+
+      if (data.published === false) {
+        return null;
+      }
+
+      return {
+        ...data,
+        body: content,
+        title: data.title.replace(" ", " "),
+      };
+    })
+    .filter(
       (item) =>
-        item.id === parseInt(query.id) &&
-        item.slug === query.slug,
-    )[0],
-  };
-};
+        item.slug === query.slug &&
+        item.id === parseInt(query.id),
+    )[0];
+  return { props: { posts } };
+}

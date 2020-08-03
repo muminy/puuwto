@@ -5,6 +5,7 @@ import LanguageContext from "context/LanguageContext";
 import GithubRepos from "components/GithubRepos";
 import fetch from "isomorphic-unfetch";
 import { siteConfig } from "constant/config";
+
 export default function Home({ reposes }) {
   const { lang } = useContext(LanguageContext);
   return (
