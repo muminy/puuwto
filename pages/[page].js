@@ -1,18 +1,17 @@
-import fs from "fs";
-import matter from "gray-matter";
-import path from "path";
 import Layout from "components/Layout";
 import BlogCard from "components/BlogCard";
+import { api } from "helper/api";
+import fetch from "isomorphic-unfetch";
 import { useState, useEffect, useContext } from "react";
 import { pages, pageData } from "helper/pagination";
+import { LeftArrow, RightArrow } from "constant/icons";
 import Pagination from "components/Pagination";
+import Link from "next/link";
 import { NotFoundPosts } from "components/Bootstrap";
 import LanguageContext from "context/LanguageContext";
-import getPosts from "lib/getPosts";
 
-export default function Read({ posts }) {
+export default function Read({ posts, page }) {
   const { lang } = useContext(LanguageContext);
-  const page = 2;
   const [postList, setPostList] = useState(
     pageData(page, posts),
   );
@@ -64,40 +63,9 @@ export default function Read({ posts }) {
     </Layout>
   );
 }
-export function getStaticPaths() {
-  return {
-    paths: pages(getPosts()).map((i) => `/${i}`),
-    fallback: true,
-  };
-}
-export function getStaticProps(context) {
-  let dir;
-  try {
-    dir = fs.readdirSync("./posts/");
-  } catch (err) {
-    // No posts yet
-    return [];
-  }
 
-  const posts = dir
-    .filter((file) => path.extname(file) === ".md")
-    .map((file) => {
-      const postContent = fs.readFileSync(
-        `./posts/${file}`,
-        "utf8",
-      );
-      const { data, content } = matter(postContent);
-
-      if (data.published === false) {
-        return null;
-      }
-
-      return {
-        ...data,
-        body: content,
-        title: data.title.replace(" ", " "),
-      };
-    })
-    .filter(Boolean);
-  return { props: { posts: posts } };
-}
+Read.getInitialProps = async ({ query }) => {
+  const apid = await fetch(`${api}/getBlogs`);
+  const jsonData = await apid.json();
+  return { posts: jsonData, page: query.page };
+};

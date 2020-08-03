@@ -4,10 +4,7 @@ module.exports = {
   env: {
     PER_PAGE_BLOG: isDev ? 1 : 5,
   },
-  webpack: (config, { isServer }) => {
-    config.node = {
-      fs: "empty",
-    };
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.md$/,
       use: "raw-loader",

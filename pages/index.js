@@ -1,7 +1,6 @@
 import fs from "fs";
-import matter from "gray-matter";
 import path from "path";
-
+import matter from "gray-matter";
 import Layout from "components/Layout";
 import BlogCard from "components/BlogCard";
 import { useState, useEffect, useContext } from "react";
@@ -9,12 +8,14 @@ import { pages, pageData } from "helper/pagination";
 import Pagination from "components/Pagination";
 import { NotFoundPosts } from "components/Bootstrap";
 import LanguageContext from "context/LanguageContext";
+import getPosts from "@/lib/getPosts";
 
-export default function ({ posts }) {
+export default function Read({ posts, data }) {
   const { lang } = useContext(LanguageContext);
   const [postList, setPostList] = useState(
     pageData(1, posts),
   );
+  console.log(getPosts());
   const [value, setValue] = useState("");
   const [pageList, setPages] = useState(pages(posts));
   useEffect(() => {
@@ -59,7 +60,7 @@ export default function ({ posts }) {
   );
 }
 
-export function getStaticProps(context) {
+export function getStaticProps() {
   let dir;
   try {
     dir = fs.readdirSync("./posts/");
@@ -67,7 +68,6 @@ export function getStaticProps(context) {
     // No posts yet
     return [];
   }
-
   const posts = dir
     .filter((file) => path.extname(file) === ".md")
     .map((file) => {
@@ -87,6 +87,8 @@ export function getStaticProps(context) {
         title: data.title.replace(" ", " "),
       };
     })
-    .filter(Boolean);
-  return { props: { posts: posts } };
+    .filter(Boolean)
+    .sort((a, b) => a.slug.localeCompare(b.slug));
+
+  return { props: { data: 1, posts: posts } };
 }

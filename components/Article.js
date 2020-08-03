@@ -3,6 +3,7 @@ import { api } from "helper/api";
 import CodeBlock from "./CodeBlock";
 
 export default function ArticleComponent({ posts }) {
+  console.log(posts);
   return (
     <div className="content">
       <header>{posts.title}</header>

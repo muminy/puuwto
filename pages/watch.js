@@ -43,9 +43,7 @@ export default function () {
       </div>
       <div className="movie_list flex">
         {tags.map((item, key) => (
-          <div key={key} className="list_of_tag border">
-            {item}
-          </div>
+          <div className="list_of_tag border">{item}</div>
         ))}
       </div>
       {movies.map((item) => (
