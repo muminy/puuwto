@@ -12,6 +12,7 @@ export default function ({
       <Link
         href="/blog/[id]/[slug]"
         as={`/blog/${id}/${slug}`}
+        prefetch={false}
       >
         <a className="header_link">{title}</a>
       </Link>
