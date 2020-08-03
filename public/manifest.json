@@ -1,0 +1,9 @@
+{
+  "name": "Blog",
+  "short_name": "Blog",
+  "description": "Blog.",
+  "orientation": "Blog",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "status": "ok"
+}

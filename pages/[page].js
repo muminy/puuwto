@@ -8,16 +8,16 @@ import { LeftArrow, RightArrow } from "constant/icons";
 import Pagination from "components/Pagination";
 import Link from "next/link";
 import { NotFoundPosts } from "components/Bootstrap";
-import { language } from "constant/language";
 import LanguageContext from "context/LanguageContext";
 
-export default function Read({ posts }) {
+export default function Read({ posts, page }) {
   const { lang } = useContext(LanguageContext);
   const [postList, setPostList] = useState(
-    pageData(1, posts),
+    pageData(page, posts),
   );
   const [value, setValue] = useState("");
   const [pageList, setPages] = useState(pages(posts));
+
   useEffect(() => {
     if (value) {
       setPostList((prevState) => {
@@ -29,8 +29,9 @@ export default function Read({ posts }) {
         );
         return [...filter];
       });
-    } else setPostList(pageData(1, posts));
+    } else setPostList(pageData(page, posts));
   }, [value]);
+
   return (
     <Layout title="">
       <div className="bigger_header">
@@ -51,7 +52,10 @@ export default function Read({ posts }) {
               <BlogCard key={item.id} {...item} />
             ))}
           </div>
-          <Pagination page={1} pageList={pageList} />
+          <Pagination
+            page={parseInt(page)}
+            pageList={pageList}
+          />
         </>
       ) : (
         <NotFoundPosts />
@@ -60,8 +64,8 @@ export default function Read({ posts }) {
   );
 }
 
-Read.getInitialProps = async () => {
+Read.getInitialProps = async ({ query }) => {
   const apid = await fetch(`${api}/getBlogs`);
   const jsonData = await apid.json();
-  return { posts: jsonData };
+  return { posts: jsonData, page: query.page };
 };
