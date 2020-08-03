@@ -1,16 +1,17 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+
+import { useState, useEffect, useContext } from "react";
 import Layout from "components/Layout";
 import BlogCard from "components/BlogCard";
-import { useState, useEffect, useContext } from "react";
 import { pages, pageData } from "helper/pagination";
 import Pagination from "components/Pagination";
 import { NotFoundPosts } from "components/Bootstrap";
 import LanguageContext from "context/LanguageContext";
 
-export default function Read({ posts, query: { page } }) {
-  const pageInt = parseInt(page);
+function Read({ posts, query }) {
+  const pageInt = parseInt(query.page);
   const { lang } = useContext(LanguageContext);
   const [postList, setPostList] = useState(
     pageData(pageInt, posts),
@@ -59,7 +60,7 @@ export default function Read({ posts, query: { page } }) {
   );
 }
 
-export function getServerSideProps({ query }) {
+export async function getServerSideProps({ query }) {
   let dir;
   try {
     dir = fs.readdirSync("./posts/");
@@ -85,7 +86,7 @@ export function getServerSideProps({ query }) {
         body: content,
         title: data.title.replace(" ", " "),
       };
-    })
-    .filter(Boolean);
+    });
   return { props: { query, posts } };
 }
+export default Read;

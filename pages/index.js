@@ -9,7 +9,7 @@ import Pagination from "components/Pagination";
 import { NotFoundPosts } from "components/Bootstrap";
 import LanguageContext from "context/LanguageContext";
 
-export default function Read({ posts }) {
+function Read({ posts }) {
   const { lang } = useContext(LanguageContext);
   const [postList, setPostList] = useState(
     pageData(1, posts),
@@ -58,7 +58,7 @@ export default function Read({ posts }) {
   );
 }
 
-export function getServerSideProps() {
+export async function getServerSideProps() {
   let dir;
   try {
     dir = fs.readdirSync("./posts/");
@@ -84,7 +84,7 @@ export function getServerSideProps() {
         body: content,
         title: data.title.replace(" ", " "),
       };
-    })
-    .filter(Boolean);
+    });
   return { props: { posts: posts } };
 }
+export default Read;
