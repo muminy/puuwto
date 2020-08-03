@@ -1,22 +1,23 @@
-import fs from "fs";
-import matter from "gray-matter";
-import path from "path";
-
 import Layout from "components/Layout";
 import BlogCard from "components/BlogCard";
+import { api } from "helper/api";
+import fetch from "isomorphic-unfetch";
 import { useState, useEffect, useContext } from "react";
 import { pages, pageData } from "helper/pagination";
+import { LeftArrow, RightArrow } from "constant/icons";
 import Pagination from "components/Pagination";
+import Link from "next/link";
 import { NotFoundPosts } from "components/Bootstrap";
 import LanguageContext from "context/LanguageContext";
 
-export default function ({ posts }) {
+export default function Read({ posts, page }) {
   const { lang } = useContext(LanguageContext);
   const [postList, setPostList] = useState(
-    pageData(1, posts),
+    pageData(page, posts),
   );
   const [value, setValue] = useState("");
   const [pageList, setPages] = useState(pages(posts));
+
   useEffect(() => {
     if (value) {
       setPostList((prevState) => {
@@ -28,8 +29,9 @@ export default function ({ posts }) {
         );
         return [...filter];
       });
-    } else setPostList(pageData(1, posts));
+    } else setPostList(pageData(page, posts));
   }, [value]);
+
   return (
     <Layout title="">
       <div className="bigger_header">
@@ -50,7 +52,10 @@ export default function ({ posts }) {
               <BlogCard key={item.id} {...item} />
             ))}
           </div>
-          <Pagination page={1} pageList={pageList} />
+          <Pagination
+            page={parseInt(page)}
+            pageList={pageList}
+          />
         </>
       ) : (
         <NotFoundPosts />
@@ -59,34 +64,8 @@ export default function ({ posts }) {
   );
 }
 
-export function getStaticProps(context) {
-  let dir;
-  try {
-    dir = fs.readdirSync("./posts/");
-  } catch (err) {
-    // No posts yet
-    return [];
-  }
-
-  const posts = dir
-    .filter((file) => path.extname(file) === ".md")
-    .map((file) => {
-      const postContent = fs.readFileSync(
-        `./posts/${file}`,
-        "utf8",
-      );
-      const { data, content } = matter(postContent);
-
-      if (data.published === false) {
-        return null;
-      }
-
-      return {
-        ...data,
-        body: content,
-        title: data.title.replace(" ", " "),
-      };
-    })
-    .filter(Boolean);
-  return { props: { posts: posts } };
-}
+Read.getInitialProps = async ({ query }) => {
+  const apid = await fetch(`${api}/getBlogs`);
+  const jsonData = await apid.json();
+  return { posts: jsonData, page: query.page };
+};
