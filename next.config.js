@@ -5,11 +5,9 @@ module.exports = {
     PER_PAGE_BLOG: isDev ? 1 : 5,
   },
   webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.node = {
-        fs: "empty",
-      };
-    }
+    config.node = {
+      fs: "empty",
+    };
     config.module.rules.push({
       test: /\.md$/,
       use: "raw-loader",

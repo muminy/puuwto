@@ -3,12 +3,12 @@ import matter from "gray-matter";
 import path from "path";
 import Layout from "components/Layout";
 
-export default function Home(props) {
-  console.log(props.posts);
+export default function (props) {
+  console.log(props);
   return <Layout>sad</Layout>;
 }
 
-Home.getInitialProps = () => {
+export function getStaticProps(context) {
   let dir;
   try {
     dir = fs.readdirSync("./posts/");
@@ -37,5 +37,5 @@ Home.getInitialProps = () => {
       };
     })
     .filter(Boolean);
-  return { posts: posts };
-};
+  return { props: { posts: posts } };
+}
