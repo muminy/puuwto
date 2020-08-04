@@ -58,7 +58,7 @@ function Read({ posts }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   let dir;
   try {
     dir = fs.readdirSync("./posts/");

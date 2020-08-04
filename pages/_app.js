@@ -5,6 +5,9 @@ import { ThemeProvider } from "context/ThemeContext";
 import { useState, useEffect } from "react";
 import { LanguageProvider } from "context/LanguageContext";
 import { language } from "constant/language";
+import { useRouter } from "next/router";
+import getPosts from "lib/getPosts";
+import App from "next/app";
 
 function useStickyState(defaultValue, key) {
   const [value, setValue] = useState("dark");
@@ -15,9 +18,11 @@ function useStickyState(defaultValue, key) {
   return [value, setValue];
 }
 
-export default function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, postsList }) {
   const [theme, setTheme] = useStickyState("dark", "theme");
   const [lang, setLang] = useState("tr");
+  const [posts, setPosts] = useState(postsList);
+  const query = useRouter().query;
   const themeValue = {
     theme,
     setTheme,
@@ -26,7 +31,11 @@ export default function MyApp({ Component, pageProps }) {
     lang: lang === "tr" ? language.tr : language.en,
     setLang,
     type: lang,
+    query: query,
+    posts: posts,
   };
+
+  useEffect;
   return (
     <LanguageProvider value={langValue}>
       <ThemeProvider value={themeValue}>
@@ -42,14 +51,11 @@ export default function MyApp({ Component, pageProps }) {
   );
 }
 
-// Only uncomment this method if you have blocking data requirements for
-// every single page in your application. This disables the ability to
-// perform automatic static optimization, causing every page in your app to
-// be server-side rendered.
-//
-// MyApp.getInitialProps = async (appContext) => {
-//   // calls page's `getInitialProps` and fills `appProps.pageProps`
-//   const appProps = await App.getInitialProps(appContext);
-//
-//   return { ...appProps }
-// }
+MyApp.getInitialProps = async (appContext) => {
+  // calls page's `getInitialProps` and fills `appProps.pageProps`
+  const appProps = await App.getInitialProps(appContext);
+
+  return { ...appProps, postsList: getPosts() };
+};
+
+export default MyApp;

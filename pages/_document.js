@@ -5,13 +5,15 @@ import Document, {
   NextScript,
 } from "next/document";
 import React from "react";
+import getPosts from "lib/getPosts";
+import { PostsProvider } from "context/PostsContext";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(
       ctx,
     );
-    return { ...initialProps };
+    return { ...initialProps, posts: getPosts() };
   }
 
   render() {
@@ -69,8 +71,10 @@ class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json"></link>
         </Head>
         <body>
-          <Main />
-          <NextScript />
+          <PostsProvider value={{ iiii: 1 }}>
+            <Main />
+            <NextScript />
+          </PostsProvider>
           <script
             src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
             integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"

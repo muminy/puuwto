@@ -3,46 +3,26 @@ import path from "path";
 import matter from "gray-matter";
 import Layout from "components/Layout";
 import ArticleComponent from "components/Article";
-export default function BlogContent(props) {
-  console.log(props);
+import { useContext, useState } from "react";
+import LanguageContext from "context/LanguageContext";
+
+export default function BlogContent({ slug, id }) {
+  const { posts } = useContext(LanguageContext);
+  const [article, setArticle] = useState(
+    posts.filter(
+      (item) =>
+        item.slug === slug && item.id === parseInt(id),
+    )[0],
+  );
+  console.log(article);
   return (
     <Layout>
-      <ArticleComponent {...props} />
+      <ArticleComponent {...article} />
     </Layout>
   );
 }
 
-export function getServerSideProps({ query }) {
-  let dir;
-  try {
-    dir = fs.readdirSync("./posts/");
-  } catch (err) {
-    // No posts yet
-    return [];
-  }
-  const posts = dir
-    .filter((file) => path.extname(file) === ".md")
-    .map((file) => {
-      const postContent = fs.readFileSync(
-        `./posts/${file}`,
-        "utf8",
-      );
-      const { data, content } = matter(postContent);
-
-      if (data.published === false) {
-        return null;
-      }
-
-      return {
-        ...data,
-        body: content,
-        title: data.title.replace(" ", " "),
-      };
-    })
-    .filter(
-      (item) =>
-        item.slug === query.slug &&
-        item.id === parseInt(query.id),
-    )[0];
-  return { props: { posts } };
-}
+BlogContent.getInitialProps = ({ query }) => {
+  const { id, slug } = query;
+  return { slug, id };
+};

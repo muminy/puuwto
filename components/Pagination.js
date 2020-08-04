@@ -23,7 +23,6 @@ export default function ({ pageList, page }) {
               as={`/${item}`}
             >
               <a
-                key={key}
                 className={`i ${
                   item === page ? "active" : ""
                 }`}

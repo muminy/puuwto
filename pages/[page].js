@@ -1,7 +1,3 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-
 import { useState, useEffect, useContext } from "react";
 import Layout from "components/Layout";
 import BlogCard from "components/BlogCard";
@@ -9,12 +5,12 @@ import { pages, pageData } from "helper/pagination";
 import Pagination from "components/Pagination";
 import { NotFoundPosts } from "components/Bootstrap";
 import LanguageContext from "context/LanguageContext";
+import getPosts from "lib/getPosts";
 
-function Read({ posts, query }) {
-  const pageInt = parseInt(query.page);
-  const { lang } = useContext(LanguageContext);
+function Read({ page }) {
+  const { lang, posts } = useContext(LanguageContext);
   const [postList, setPostList] = useState(
-    pageData(pageInt, posts),
+    pageData(page, posts),
   );
   const [value, setValue] = useState("");
   const [pageList, setPages] = useState(pages(posts));
@@ -29,7 +25,7 @@ function Read({ posts, query }) {
         );
         return [...filter];
       });
-    } else setPostList(pageData(pageInt, posts));
+    } else setPostList(pageData(page, posts));
   }, [value]);
   return (
     <Layout title="">
@@ -51,7 +47,10 @@ function Read({ posts, query }) {
               <BlogCard key={item.id} {...item} />
             ))}
           </div>
-          <Pagination page={pageInt} pageList={pageList} />
+          <Pagination
+            page={parseInt(page)}
+            pageList={pageList}
+          />
         </>
       ) : (
         <NotFoundPosts />
@@ -59,34 +58,9 @@ function Read({ posts, query }) {
     </Layout>
   );
 }
+Read.getInitialProps = ({ query }) => {
+  const posts = getPosts();
+  return { posts: getPosts(), page: parseInt(query.page) };
+};
 
-export async function getServerSideProps({ query }) {
-  let dir;
-  try {
-    dir = fs.readdirSync("./posts/");
-  } catch (err) {
-    // No posts yet
-    return [];
-  }
-  const posts = dir
-    .filter((file) => path.extname(file) === ".md")
-    .map((file) => {
-      const postContent = fs.readFileSync(
-        `./posts/${file}`,
-        "utf8",
-      );
-      const { data, content } = matter(postContent);
-
-      if (data.published === false) {
-        return null;
-      }
-
-      return {
-        ...data,
-        body: content,
-        title: data.title.replace(" ", " "),
-      };
-    });
-  return { props: { query, posts } };
-}
 export default Read;
