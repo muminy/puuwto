@@ -6,13 +6,13 @@
   .menu_list {
     padding: 10px 0px;
     padding-bottom: 0px;
+    justify-content: flex-start;
   }
   .menu_list > .menu_link:first-child {
     margin-left: 0px;
   }
   .customHeader {
-    padding-bottom: 0px !important;
-    padding-top: 10px !important;
+    padding: 10px 0px !important;
   }
   .movie_list {
     flex-wrap: wrap;
@@ -25,6 +25,9 @@
     margin-right: 15px;
     margin-bottom: 10px;
     margin-left: 0px;
+  }
+  .light_theme .menu_link {
+    font-size: 14px;
   }
 }
 @media only screen and (max-width: 800px) {
