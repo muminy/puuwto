@@ -8,10 +8,10 @@ export default function ({
   imbd,
 }) {
   return (
-    <div className="movie_list_pro flex border">
+    <div className="movie_list_pro flex">
       <img src={image} alt={title} />
       <div className="movie_content ml-10">
-        <div>
+        <div className="lh-20">
           <Link href="/">
             <a className="link_movie">{title}</a>
           </Link>

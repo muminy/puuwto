@@ -19,7 +19,7 @@ function Read({ posts }) {
   useEffect(() => {
     if (value) {
       setPostList((prevState) => {
-        const filter = prevState.filter(
+        const filter = posts.filter(
           (item) =>
             item.title
               .toLowerCase()

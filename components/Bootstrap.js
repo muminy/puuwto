@@ -31,11 +31,7 @@ export const NavBar = ({ children, opacity }) => {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light header ${
-        pathname === "/blog/[id]/[slug]"
-          ? "opacityheader"
-          : ""
-      }`}
+      className={`navbar navbar-expand-lg navbar-light header customHeader`}
     >
       {children}
     </nav>

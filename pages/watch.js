@@ -34,14 +34,14 @@ export default function () {
   return (
     <Layout>
       <div className="bigger_header">
-        Film Önerileri
+        Film & Dizi Önerileri
         <p>
           Daha önceden izlediğim ve beğendiğim kişisel
           gelişim, bilim kurgu, aksiyon filmlerini bir liste
           haline getirip sizlere sunuyorum.
         </p>
       </div>
-      <div className="movie_list flex">
+      <div className="movie_list flex ">
         {tags.map((item, key) => (
           <div key={key} className="list_of_tag border">
             {item}

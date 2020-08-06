@@ -5,7 +5,6 @@ import Layout from "components/Layout";
 import ArticleComponent from "components/Article";
 import { useContext, useState } from "react";
 import LanguageContext from "context/LanguageContext";
-
 export default function BlogContent({ slug, id }) {
   const { posts } = useContext(LanguageContext);
   const [article, setArticle] = useState(
@@ -14,7 +13,6 @@ export default function BlogContent({ slug, id }) {
         item.slug === slug && item.id === parseInt(id),
     )[0],
   );
-  console.log(article);
   return (
     <Layout>
       <ArticleComponent {...article} />

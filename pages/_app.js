@@ -8,45 +8,33 @@ import { language } from "constant/language";
 import { useRouter } from "next/router";
 import getPosts from "lib/getPosts";
 import App from "next/app";
+import fetch from "isomorphic-unfetch";
+import { siteConfig } from "constant/config";
 
-function useStickyState(defaultValue, key) {
-  const [value, setValue] = useState("dark");
-  useEffect(() => {
-    setValue(localStorage.getItem(key) ?? defaultValue);
-  }, [value]);
+let results = [];
 
-  return [value, setValue];
-}
-
-function MyApp({ Component, pageProps, postsList }) {
-  const [theme, setTheme] = useStickyState("dark", "theme");
+function MyApp({
+  Component,
+  pageProps,
+  postsList,
+  reposes,
+}) {
   const [lang, setLang] = useState("tr");
   const [posts, setPosts] = useState(postsList);
   const query = useRouter().query;
-  const themeValue = {
-    theme,
-    setTheme,
-  };
   const langValue = {
     lang: lang === "tr" ? language.tr : language.en,
     setLang,
     type: lang,
     query: query,
     posts: posts,
+    reposes: reposes,
   };
-
-  useEffect;
   return (
     <LanguageProvider value={langValue}>
-      <ThemeProvider value={themeValue}>
-        <section
-          className={
-            theme === "dark" ? "dark_theme" : "light_theme"
-          }
-        >
-          <Component {...pageProps} />
-        </section>
-      </ThemeProvider>
+      <section id="asdasd" className={"light_theme"}>
+        <Component {...pageProps} />
+      </section>
     </LanguageProvider>
   );
 }
@@ -54,8 +42,10 @@ function MyApp({ Component, pageProps, postsList }) {
 MyApp.getInitialProps = async (appContext) => {
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext);
-
-  return { ...appProps, postsList: getPosts() };
+  return {
+    ...appProps,
+    postsList: getPosts(),
+  };
 };
 
 export default MyApp;

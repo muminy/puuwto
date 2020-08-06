@@ -7,11 +7,10 @@ import {
 } from "helper/SyntaxHighligherStyles";
 
 const CodeBlock = ({ language, value }) => {
-  const { theme } = useContext(ThemeContext);
   return (
     <SyntaxHighlighter
       language={language}
-      style={theme === "dark" ? vsDark : githubLight}
+      style={githubLight}
     >
       {value}
     </SyntaxHighlighter>

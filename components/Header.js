@@ -14,9 +14,8 @@ export const MenuIcon = () => (
 export default function () {
   const router = useRouter();
   const links = [
-    { key: 0, text: "Read", router: "/" },
-    { key: 1, text: "Repository", router: "/repos" },
-    { key: 2, text: "Watch", router: "/watch" },
+    { key: 0, text: "Blog", router: "/" },
+    { key: 1, text: "Film & Dizi", router: "/watch" },
   ];
   return (
     <NavBar>
@@ -44,7 +43,13 @@ export default function () {
                 <a
                   className={`menu_link ${
                     item.router ===
-                    router.pathname.replace("[page]", "")
+                      router.pathname.replace(
+                        "[page]",
+                        "",
+                      ) ||
+                    (item.router === "/" &&
+                      router.pathname ===
+                        "/blog/[id]/[slug]")
                       ? "active"
                       : ""
                   }`}

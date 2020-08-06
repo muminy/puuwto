@@ -4,59 +4,51 @@ import { useContext } from "react";
 import ThemeContext from "context/ThemeContext";
 import LanguageContext from "context/LanguageContext";
 import { useRouter } from "next/router";
+import { useCookies } from "react-cookie";
+import {
+  GithubIcon,
+  TwitterIcon,
+  Linkedin,
+} from "constant/icons";
+import Link from "next/link";
 
 export default function ({ opacity }) {
-  const { theme, setTheme } = useContext(ThemeContext);
-  const { lang, setLang, type } = useContext(
-    LanguageContext,
-  );
   const pathname = useRouter().pathname;
-  const handleTheme = () => {
-    const currentTheme =
-      theme === "light" ? "dark" : "light";
-    setTheme(currentTheme);
-    localStorage.setItem("theme", currentTheme);
-  };
-  const handleLanguage = () => {
-    const currentType = type === "tr" ? "en" : "tr";
-    setLang(currentType);
-    localStorage.setItem("language", currentType);
-  };
   return (
-    <Container
-      className={`footer ${
-        pathname === "/blog/[id]/[slug]"
-          ? "opacityheader"
-          : ""
-      }`}
-    >
-      <Row center>
-        <Col lg="5" md="6" sm="6">
-          <div className="blog_footer">
-            <SiteLogo />
-            <p>
-              Kişisel blog. Günlük öğrendiklerimi yazarak
-              yada video ile sizlere aktarmaya çalışıyorum.
-            </p>
-          </div>
-        </Col>
-        <Col lg="7" md="6" sm="6">
-          <div className="button_list">
-            <button
-              onClick={handleTheme}
-              className="switch_theme"
-            >
-              {lang.footer.change.theme}
-            </button>
-            <button
-              onClick={handleLanguage}
-              className="switch_theme"
-            >
-              {lang.footer.change.language}
-            </button>
-          </div>
-        </Col>
-      </Row>
+    <Container className={`footer`}>
+      <div className="flex">
+        <div className="flex social_list">
+          <a
+            href="https://github.com/muminy"
+            className="list_item"
+            target="__blank"
+          >
+            <GithubIcon size={25} color="#111" />
+          </a>
+          <a
+            href="https://twitter.com/muminy61"
+            className="list_item"
+            target="__blank"
+          >
+            <TwitterIcon size={25} color="#111" />
+          </a>
+          <a
+            href="https://linkedin.com/in/muminy"
+            className="list_item"
+            target="__blank"
+          >
+            <Linkedin size={25} color="#111" />
+          </a>
+        </div>
+        <div className="source_code">
+          <a
+            href="https://github.com/muminy/puuwto"
+            className="aroot"
+          >
+            Kodu incele
+          </a>
+        </div>
+      </div>
     </Container>
   );
 }

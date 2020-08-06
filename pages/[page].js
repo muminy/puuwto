@@ -9,24 +9,25 @@ import getPosts from "lib/getPosts";
 
 function Read({ page }) {
   const { lang, posts } = useContext(LanguageContext);
-  const [postList, setPostList] = useState(
-    pageData(page, posts),
-  );
+  const pagePost = pageData(page, posts);
+  const [postList, setPostList] = useState(pagePost);
   const [value, setValue] = useState("");
   const [pageList, setPages] = useState(pages(posts));
   useEffect(() => {
     if (value) {
-      setPostList((prevState) => {
-        const filter = prevState.filter(
-          (item) =>
-            item.title
-              .toLowerCase()
-              .indexOf(value.toLowerCase()) > -1,
-        );
-        return [...filter];
-      });
+      const filter = prevState.filter(
+        (item) =>
+          item.title
+            .toLowerCase()
+            .indexOf(value.toLowerCase()) > -1,
+      );
+      setPostList(filter);
     } else setPostList(pageData(page, posts));
   }, [value]);
+
+  useEffect(() => {
+    setPostList(pagePost);
+  }, [page]);
   return (
     <Layout title="">
       <div className="bigger_header">
@@ -59,7 +60,6 @@ function Read({ page }) {
   );
 }
 Read.getInitialProps = ({ query }) => {
-  const posts = getPosts();
   return { posts: getPosts(), page: parseInt(query.page) };
 };
 

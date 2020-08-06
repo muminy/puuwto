@@ -5,15 +5,14 @@ import Document, {
   NextScript,
 } from "next/document";
 import React from "react";
-import getPosts from "lib/getPosts";
-import { PostsProvider } from "context/PostsContext";
+import { siteConfig } from "constant/config";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(
       ctx,
     );
-    return { ...initialProps, posts: getPosts() };
+    return { ...initialProps };
   }
 
   render() {
@@ -43,38 +42,39 @@ class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"
           />
-          <meta name="description" content="Feewer codes" />
+          <meta
+            name="description"
+            content={`${siteConfig.name} Blog`}
+          />
           <meta
             property="og:url"
-            content="https://feewer.com"
+            content={`https://${siteConfig.URL}`}
           />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="mukemmelis" />
           <meta
             property="og:description"
-            content="Feewer codes"
+            content={`${siteConfig.name} Blog`}
           />
           <meta name="twitter:card" content="summary" />
           <meta
             name="twitter:url"
-            content="https://feewer.com"
+            content={`https://${siteConfig.URL}`}
           />
           <meta name="twitter:title" content="mukemmelis" />
           <meta
             name="twitter:description"
-            content="Feewer codes"
+            content={`${siteConfig.name} Blog`}
           />
           <meta
             name="application-name"
-            content="Feewer codes"
+            content={`${siteConfig.name} Blog`}
           />
           <link rel="manifest" href="/manifest.json"></link>
         </Head>
         <body>
-          <PostsProvider value={{ iiii: 1 }}>
-            <Main />
-            <NextScript />
-          </PostsProvider>
+          <Main />
+          <NextScript />
           <script
             src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
             integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
