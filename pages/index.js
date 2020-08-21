@@ -8,14 +8,14 @@ import { pages, pageData } from "helper/pagination";
 import Pagination from "components/Pagination";
 import { NotFoundPosts } from "components/Bootstrap";
 import LanguageContext from "context/LanguageContext";
+import getPosts, { pageArray } from "lib/getPosts";
 
-function Read({ posts }) {
+function Read({ posts, pageList }) {
   const { lang } = useContext(LanguageContext);
   const [postList, setPostList] = useState(
     pageData(1, posts),
   );
   const [value, setValue] = useState("");
-  const [pageList, setPages] = useState(pages(posts));
   useEffect(() => {
     if (value) {
       setPostList((prevState) => {
@@ -58,33 +58,21 @@ function Read({ posts }) {
   );
 }
 
-export async function getStaticProps() {
-  let dir;
-  try {
-    dir = fs.readdirSync("./posts/");
-  } catch (err) {
-    // No posts yet
-    return [];
-  }
-  const posts = dir
-    .filter((file) => path.extname(file) === ".md")
-    .map((file) => {
-      const postContent = fs.readFileSync(
-        `./posts/${file}`,
-        "utf8",
-      );
-      const { data, content } = matter(postContent);
+export const getStaticProps = () => {
+  const posts = getPosts();
+  return {
+    props: {
+      posts: posts,
+      pageList: pageArray(),
+    },
+  };
+};
 
-      if (data.published === false) {
-        return null;
-      }
+export const getStaticPaths = () => {
+  return {
+    paths: ["/"],
+    fallback: false,
+  };
+};
 
-      return {
-        ...data,
-        body: content,
-        title: data.title.replace(" ", " "),
-      };
-    });
-  return { props: { posts: posts } };
-}
 export default Read;

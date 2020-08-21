@@ -7,12 +7,11 @@ import { NotFoundPosts } from "components/Bootstrap";
 import LanguageContext from "context/LanguageContext";
 import getPosts, { pageArray } from "lib/getPosts";
 
-function Read({ posts, page }) {
+function Read({ posts, page, pageList }) {
   const { lang } = useContext(LanguageContext);
   const pagePost = pageData(page, posts);
   const [postList, setPostList] = useState(pagePost);
   const [value, setValue] = useState("");
-  const [pageList, setPages] = useState(pages(posts));
   useEffect(() => {
     if (value) {
       const filter = prevState.filter(
@@ -28,6 +27,7 @@ function Read({ posts, page }) {
   useEffect(() => {
     setPostList(pagePost);
   }, [page]);
+  console.log(posts);
   return (
     <Layout title="">
       <div className="bigger_header">
