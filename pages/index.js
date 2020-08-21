@@ -8,12 +8,12 @@ import { pages, pageData } from "helper/pagination";
 import Pagination from "components/Pagination";
 import { NotFoundPosts } from "components/Bootstrap";
 import LanguageContext from "context/LanguageContext";
-import getPosts, { pageArray } from "lib/getPosts";
+import getPosts from "lib/getPosts";
 
-function Read({ posts, pageList }) {
+function Read({ posts, page, pageList }) {
   const { lang } = useContext(LanguageContext);
   const [postList, setPostList] = useState(
-    pageData(1, posts),
+    pageData(page, posts),
   );
   const [value, setValue] = useState("");
   useEffect(() => {
@@ -27,7 +27,7 @@ function Read({ posts, pageList }) {
         );
         return [...filter];
       });
-    } else setPostList(pageData(1, posts));
+    } else setPostList(pageData(page, posts));
   }, [value]);
   return (
     <Layout title="">
@@ -60,18 +60,13 @@ function Read({ posts, pageList }) {
 
 export const getStaticProps = () => {
   const posts = getPosts();
+  const pageArray = pages([]);
   return {
     props: {
+      page: 1,
       posts: posts,
-      pageList: pageArray(),
+      pageList: pageArray,
     },
-  };
-};
-
-export const getStaticPaths = () => {
-  return {
-    paths: ["/"],
-    fallback: false,
   };
 };
 

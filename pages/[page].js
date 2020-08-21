@@ -27,7 +27,6 @@ function Read({ posts, page, pageList }) {
   useEffect(() => {
     setPostList(pagePost);
   }, [page]);
-  console.log(posts);
   return (
     <Layout title="">
       <div className="bigger_header">
