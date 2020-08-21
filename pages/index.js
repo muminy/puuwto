@@ -29,6 +29,7 @@ function Read({ posts, page, pageList }) {
       });
     } else setPostList(pageData(page, posts));
   }, [value]);
+
   return (
     <Layout title="">
       <div className="bigger_header">
