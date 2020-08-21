@@ -8,7 +8,7 @@ import { pages, pageData } from "helper/pagination";
 import Pagination from "components/Pagination";
 import { NotFoundPosts } from "components/Bootstrap";
 import LanguageContext from "context/LanguageContext";
-import getPosts from "lib/getPosts";
+import getPosts, { pageArray } from "lib/getPosts";
 
 function Read({ posts, page, pageList }) {
   const { lang } = useContext(LanguageContext);
@@ -61,12 +61,11 @@ function Read({ posts, page, pageList }) {
 
 export const getStaticProps = () => {
   const posts = getPosts();
-  const pageArray = pages([]);
   return {
     props: {
       page: 1,
       posts: posts,
-      pageList: pageArray,
+      pageList: pageArray(),
     },
   };
 };

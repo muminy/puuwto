@@ -61,12 +61,11 @@ function Read({ posts, page, pageList }) {
 
 export const getStaticProps = ({ params: { page } }) => {
   const posts = getPosts();
-  const pageArray = pages(posts);
   return {
     props: {
       page: parseInt(page),
       posts: posts,
-      pageList: pageArray,
+      pageList: pageArray(),
     },
   };
 };
