@@ -5,10 +5,10 @@ import { pages, pageData } from "helper/pagination";
 import Pagination from "components/Pagination";
 import { NotFoundPosts } from "components/Bootstrap";
 import LanguageContext from "context/LanguageContext";
-import getPosts from "lib/getPosts";
+import getPosts, { pageArray } from "lib/getPosts";
 
-function Read({ page }) {
-  const { lang, posts } = useContext(LanguageContext);
+function Read({ posts, page }) {
+  const { lang } = useContext(LanguageContext);
   const pagePost = pageData(page, posts);
   const [postList, setPostList] = useState(pagePost);
   const [value, setValue] = useState("");
@@ -59,8 +59,24 @@ function Read({ page }) {
     </Layout>
   );
 }
-Read.getInitialProps = ({ query }) => {
-  return { posts: getPosts(), page: parseInt(query.page) };
+
+export const getStaticProps = ({ params: { page } }) => {
+  const posts = getPosts();
+  const pageArray = pages(posts);
+  return {
+    props: {
+      page: parseInt(page),
+      posts: posts,
+      pageList: pageArray,
+    },
+  };
+};
+
+export const getStaticPaths = () => {
+  return {
+    paths: pageArray().map((p) => `/${p}`),
+    fallback: false,
+  };
 };
 
 export default Read;
