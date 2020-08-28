@@ -1,10 +1,8 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+
 import Layout from "components/Layout";
 import BlogCard from "components/BlogCard";
 import { useState, useEffect, useContext } from "react";
-import { pages, pageData } from "helper/pagination";
+import { pageData } from "helper/pagination";
 import Pagination from "components/Pagination";
 import { NotFoundPosts } from "components/Bootstrap";
 import LanguageContext from "context/LanguageContext";

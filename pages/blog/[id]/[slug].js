@@ -1,10 +1,8 @@
 import Layout from "components/Layout";
 import ArticleComponent from "components/Article";
-import { useContext, useState, useEffect } from "react";
 import getPosts from "lib/getPosts";
 
 export default function BlogContent(props) {
-  console.log(props);
   return (
     <Layout>
       <ArticleComponent {...props} />

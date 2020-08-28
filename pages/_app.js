@@ -1,15 +1,12 @@
 import "styles/global.css";
 import "styles/bootstrap.css";
 import "styles/responsive.css";
-import { ThemeProvider } from "context/ThemeContext";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { LanguageProvider } from "context/LanguageContext";
 import { language } from "constant/language";
 import { useRouter } from "next/router";
 import getPosts from "lib/getPosts";
 import App from "next/app";
-import fetch from "isomorphic-unfetch";
-import { siteConfig } from "constant/config";
 
 let results = [];
 
