@@ -295,7 +295,7 @@ time {
   top: 0;
   left: 0;
   right: 0;
-  background-color: #fff;
+  background-color: #fffffff3;
   backdrop-filter: saturate(180%);
 }
 .content > header {
