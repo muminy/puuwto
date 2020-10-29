@@ -45,7 +45,7 @@ export default function ({ opacity }) {
             href="https://github.com/muminy/puuwto"
             className="aroot"
           >
-            Kodu incele >
+            Kodu incele
           </a>
         </div>
       </div>
