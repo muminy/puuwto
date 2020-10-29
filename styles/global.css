@@ -60,7 +60,7 @@ a {
 .light_theme .menu_icon_list > .line {
   width: 100%;
   height: 4px;
-  background-color: #000;
+  background-color: #858585;
   border-radius: 3px;
   margin-bottom: 5px;
 }
@@ -68,19 +68,18 @@ a {
   margin-bottom: 0px;
 }
 .menu_link {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 15px;
   padding: 8px 20px;
   margin-left: 10px;
+  font-weight: 600;
+  color: #8f8f8f;
 }
 .light_theme .menu_link.active {
-  color: #000;
-  font-weight: 700;
-  background-color: rgb(237, 238, 240);
+  color: #2e2e2e;
   border-radius: 4px;
 }
 .menu_link:hover {
-  background-color: rgb(237, 238, 240);
   border-radius: 4px;
   transition: all 250ms ease 0s;
   color: #2e2e2e !important;
@@ -99,7 +98,7 @@ a {
 }
 
 .light_theme .menu_link {
-  color: #7a7a7a;
+  color: #b6b6b6;
 }
 .menu_link:last-child {
   margin-right: 0px;
@@ -465,7 +464,6 @@ h6 {
   font-size: 18px;
   font-weight: 700;
   margin-right: 22px;
-  padding: 1px 10px;
   cursor: pointer;
 }
 .dark_theme .list_i > .i {
@@ -473,18 +471,17 @@ h6 {
 }
 .light_theme .list_i > .i {
   color: #11111188;
-  border: 1px solid #1111112c;
   border-radius: 3px;
 }
 .light_theme .list_i > .i:hover {
   color: #11111196;
-  border: 1px solid #11111148;
   border-radius: 3px;
+  text-decoration: underline !important;
 }
 .list_i > .i.active {
   color: #111111ef;
-  border: 1px solid #1111118a;
   border-radius: 3px;
+  text-decoration: underline !important;
 }
 .left_go {
   margin-left: -5px;
@@ -516,15 +513,11 @@ h6 {
 }
 .source_code > a {
   margin-left: auto;
-  color: #646464 !important;
-  border: 1px dashed #b3b3b3;
-  font-weight: 500;
+  color: #000000 !important;
+  font-weight: 400;
   padding: 8px 40px;
   border-radius: 3px;
   transition: all 250ms ease 0s;
   font-weight: 600;
   font-size: 14px;
-}
-.source_code > a:hover {
-  border: 1px dashed #000000;
 }
