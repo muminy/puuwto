@@ -1,0 +1,3 @@
+.posts {
+  @apply flex flex-wrap border-t;
+}

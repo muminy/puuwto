@@ -1,0 +1,24 @@
+@import "./tailwind.css";
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

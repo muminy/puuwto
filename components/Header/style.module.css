@@ -1,0 +1,23 @@
+.header {
+  @apply xl:py-14 lg:py-10 py-8 h-10 flex justify-between items-center;
+}
+
+.menulink {
+  @apply relative text-sm p-[2px] rounded-xl;
+}
+
+.menulink span {
+  @apply block duration-200 whitespace-nowrap hover:bg-gray-100 font-semibold hover:text-gray-900 text-gray-600 px-3.5 z-10 relative w-full rounded-xl h-full py-2;
+}
+
+.tailwinui:hover span {
+  @apply rounded-xl;
+
+  background-image: linear-gradient(
+    43deg,
+    #4159d01c 0%,
+    #c850c01c 46%,
+    #ffcc701c 100%
+  );
+  z-index: 0;
+}
