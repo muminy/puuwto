@@ -1,11 +1,9 @@
 import Post from "@/components/Post";
-import F from "@/constants/styles";
-import { IPosts } from "@/types/global";
-import classNames from "classnames";
+import { IPost } from "@/types/global";
 import style from "./style.module.css";
 
 interface IProps {
-  posts: IPosts[];
+  posts: IPost[];
 }
 
 export default function Posts(props: IProps) {
