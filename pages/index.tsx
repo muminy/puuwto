@@ -1,11 +1,7 @@
-import Container from "@/components/Container";
-import Note from "@/components/Note";
 import Posts from "@/components/Sections/Posts";
-import F from "@/constants/styles";
 import getPosts from "@/lib/post";
-import { IPosts } from "@/types/global";
 import classNames from "classnames";
-import type { GetServerSidePropsContext, NextPage } from "next";
+import type { NextPage } from "next";
 
 const Home: NextPage = ({ posts }: any) => {
   return (
@@ -18,14 +14,15 @@ const Home: NextPage = ({ posts }: any) => {
     </div>
   );
 };
-
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getStaticProps() {
   const posts = getPosts();
-
+  // If you request this page with the preview mode cookies set:
+  //
+  // - context.preview will be true
+  // - context.previewData will be the same as
+  //   the argument used for `setPreviewData`.
   return {
-    props: {
-      posts,
-    }, // will be passed to the page component as props
+    props: { posts },
   };
 }
 export default Home;

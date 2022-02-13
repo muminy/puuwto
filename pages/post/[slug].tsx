@@ -1,48 +1,47 @@
 import Container from "@/components/Container";
-import Posts from "@/components/Sections/Posts";
+import Markdown from "@/components/Markdown";
+import PostTitle from "@/components/Post/Title";
 import getPosts, { getPost } from "@/lib/post";
-import { IPosts } from "@/types/global";
+import { IPost } from "@/types/global";
 import classNames from "classnames";
-import type {
-  GetServerSideProps,
-  GetServerSidePropsContext,
-  GetStaticPaths,
-  GetStaticProps,
-  NextPage,
-} from "next";
+import type { GetStaticPropsContext, NextPage } from "next";
 
-const PostContent: NextPage = ({ post, slug }: any) => {
-  console.log(post, slug);
+interface Props {
+  post: IPost;
+}
+
+const PostContent: NextPage<Props> = ({ post }) => {
   return (
-    <Container className={classNames("")}>
-      {/* <Posts posts={posts} /> */}
-      {post.body}
-      {/* <div className={classNames(F.paddingX, F.paddingY, "flex border-b")}>
+    <div className={classNames("border-t py-10")}>
+      <Container>
+        <PostTitle>{post.title}</PostTitle>
+        <Markdown content={post.body} />
+        {/* <div className={classNames(F.paddingX, F.paddingY, "flex border-b")}>
         <Note className="!mb-0" />
       </div> */}
-    </Container>
+      </Container>
+    </div>
   );
 };
 
-interface SSProps extends GetServerSidePropsContext {
-  query: {
-    slug: string;
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const post = getPost(context.params?.slug as string);
+  // If you request this page with the preview mode cookies set:
+  //
+  // - context.preview will be true
+  // - context.previewData will be the same as
+  //   the argument used for `setPreviewData`.
+  return {
+    props: { post },
   };
 }
 
-export async function getServerSideProps(context: SSProps) {
-  const post = getPost(context.query.slug);
-
-  if (post) {
-    return {
-      props: {
-        post,
-        slug: context.query.slug,
-      }, // will be passed to the page component as props
-    };
-  }
-
-  return { notFound: true };
+export async function getStaticPaths() {
+  const posts = getPosts();
+  return {
+    paths: posts.map((item) => `/post/${item.slug}-${item.id}`),
+    fallback: false, // false or 'blocking'
+  };
 }
 
 export default PostContent;

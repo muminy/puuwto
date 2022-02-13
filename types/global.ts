@@ -10,10 +10,10 @@ export interface MenuLink {
   title: string;
 }
 
-export interface IPosts {
+export interface IPost {
   id: string;
   slug: string;
   title: string;
-  body: string | null;
+  body: string;
   description?: string;
 }
